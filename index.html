@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -10,106 +9,7 @@
 <title>Travel Buddy 旅行手帳</title>
 <style>
 :root{--bg:#fff8f8;--paper:#fff;--pink:#f4b8cb;--pink2:#ffe4ec;--rose:#c66f91;--deep:#8c4964;--text:#493b43;--muted:#9a858e;--line:#f2dce4;--cream:#fff1e9;--green:#dcefe4;--shadow:0 8px 24px #a75e7812}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0}
-.app{max-width:760px;margin:0 auto;min-height:100vh;padding:0 16px 34px}
-.top{padding:calc(18px + env(safe-area-inset-top)) 0 12px;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;gap:10px;align-items:center}
-.logo{width:44px;height:44px;border-radius:15px;background:var(--pink2);display:grid;place-items:center;font-size:24px}
-.brand h1{font-size:19px;margin:0}
-.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}
-.pill{border-radius:99px;background:#fff;border:1px solid var(--line);padding:8px 12px;color:var(--deep);font-weight:700}
-.hero{background:linear-gradient(135deg,#ffe4ec,#fff0e7);border-radius:25px;padding:22px;position:relative;overflow:hidden;margin:8px 0 20px}
-.hero:after{content:"✈️";position:absolute;right:20px;top:12px;font-size:34px;opacity:.75}
-.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--rose)}
-.hero h2{font-size:25px;line-height:1.25;margin:8px 0}
-.hero p{color:#856e78;margin:0;max-width:80%}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 12px}
-.section-head h2{font-size:18px;margin:0}
-.small{font-size:12px;color:var(--muted)}
-.destinations{display:grid;grid-template-columns:1fr;gap:12px}
-.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit;transition:transform .15s}
-.destination:active{transform:scale(.99)}
-.flag{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:31px;flex-shrink:0}
-.flag.hk{background:#ffe4e8}
-.flag.cn{background:#fff0d8}
-.flag.jp{background:#e7edff}
-.dest-info{flex:1;min-width:0}
-.dest-info h3{font-size:19px;margin:0 0 3px}
-.dest-info p{font-size:12px;color:var(--muted);margin:0}
-.progress{height:5px;background:#f6e8ed;border-radius:9px;margin-top:10px;overflow:hidden}
-.progress span{height:100%;display:block;background:var(--rose);border-radius:9px}
-.arrow{font-size:23px;color:#caa2b2}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center;color:inherit;width:100%;font-weight:400;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.stat:active{transform:scale(.98)}
-.stat:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
-.summary-dest{border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fffafb}
-.summary-dest h4{margin:0 0 9px;font-size:15px}
-.summary-record{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:7px;color:inherit}
-.summary-record strong{display:block;overflow-wrap:anywhere}
-.summary-record small{display:block;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}
-.summary-open{margin-top:9px;width:100%}
-.stat strong{font-size:20px;display:block;color:var(--deep)}
-.stat span{font-size:11px;color:var(--muted)}
-.footer{text-align:center;font-size:11px;color:#b49da6;padding:24px 0 8px}
-.hidden{display:none!important}
-.back{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--deep);font-weight:800;padding:8px 0;margin:0 0 8px}
-.trip-head{padding:18px;border-radius:23px;margin:5px 0 16px;display:flex;align-items:center;gap:13px}
-.trip-head.hk{background:#ffe9ee}
-.trip-head.cn{background:#fff1d9}
-.trip-head.jp{background:#e9edff}
-.trip-flag{font-size:39px}
-.trip-head h2{font-size:24px;margin:0}
-.trip-head p{margin:2px 0 0;font-size:12px;color:var(--muted)}
-.tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 0 12px;margin-bottom:10px}
-.tab{white-space:nowrap;border-radius:99px;padding:9px 13px;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px}
-.tab.active{background:var(--rose);color:white;border-color:var(--rose)}
-.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:16px;box-shadow:var(--shadow);margin-bottom:13px}
-.panel h3{margin:0 0 12px;font-size:16px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.field{display:flex;flex-direction:column;gap:5px;min-width:0}
-.field.full{grid-column:1/-1}
-.field label{font-size:12px;font-weight:800;color:#856b77}
-.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fffafb;border-radius:12px;padding:11px;color:var(--text);outline:none;min-width:0}
-.field textarea{min-height:72px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose)}
-.primary{background:var(--rose);color:#fff;border-radius:13px;padding:11px 15px;font-weight:800}
-.secondary{background:#fff0f5;color:var(--deep);border-radius:12px;padding:9px 12px;font-weight:800}
-.danger{background:#fff0f0;color:#b84b5b;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:800}
-.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.list{display:flex;flex-direction:column;gap:9px}
-.item{border:1px solid var(--line);border-radius:15px;padding:12px;display:flex;gap:10px;align-items:flex-start;background:#fffdfd}
-.item.done{background:#f8fbf8;opacity:.85}
-.item-main{flex:1;min-width:0}
-.item-title{font-weight:800;overflow-wrap:anywhere}
-.item.done .item-title{text-decoration:line-through;color:#8eaaa0}
-.item-meta{font-size:12px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}
-.item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
-.check{width:20px;height:20px;accent-color:var(--rose);margin-top:2px;flex-shrink:0}
-.empty{text-align:center;padding:25px 12px;color:var(--muted);font-size:13px}
-.empty .emoji{font-size:29px;display:block;margin-bottom:5px}
-.filter-row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}
-.filter-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fffafb}
-.note{font-size:12px;color:var(--muted);margin-top:8px}
-.money{color:var(--deep);font-weight:800}
-.itinerary-day{border-left:3px solid var(--pink);padding:0 0 4px 14px;margin:12px 0}
-.itinerary-day h4{margin:0 0 8px}
-.day-item{background:#fff8fa;border-radius:12px;padding:10px;margin-bottom:7px}
-.day-item strong{display:block}
-.day-item small{color:var(--muted)}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#493b43;color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:10;box-shadow:var(--shadow);max-width:90%;text-align:center}
-.modal-bg{position:fixed;inset:0;background:#38232e66;display:grid;place-items:center;padding:18px;z-index:20}
-.modal{background:#fff;border-radius:22px;padding:20px;width:min(100%,500px);max-height:90vh;overflow:auto}
-.modal h3{margin-top:0}
-.modal .form-grid{margin-top:12px}
-.top-actions{display:flex;gap:8px}
-.settings{display:flex;gap:8px;flex-wrap:wrap}
-.count-label{background:#fff;border-radius:99px;padding:4px 9px;font-size:11px;color:var(--deep);border:1px solid var(--line)}
-@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.destination:last-child .dest-info{max-width:75%}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}
-@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:18px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:760px;margin:0 auto;min-height:100vh;padding:0 16px 34px}.top{padding:calc(18px + env(safe-area-inset-top)) 0 12px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:15px;background:var(--pink2);display:grid;place-items:center;font-size:24px}.brand h1{font-size:19px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.pill{border-radius:99px;background:#fff;border:1px solid var(--line);padding:8px 12px;color:var(--deep);font-weight:700}.hero{background:linear-gradient(135deg,#ffe4ec,#fff0e7);border-radius:25px;padding:22px;position:relative;overflow:hidden;margin:8px 0 20px}.hero:after{content:"✈️";position:absolute;right:20px;top:12px;font-size:34px;opacity:.75}.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--rose)}.hero h2{font-size:25px;line-height:1.25;margin:8px 0}.hero p{color:#856e78;margin:0;max-width:80%}.section-head{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 12px}.section-head h2{font-size:18px;margin:0}.small{font-size:12px;color:var(--muted)}.destinations{display:grid;grid-template-columns:1fr;gap:12px}.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit;transition:transform .15s}.destination:active{transform:scale(.99)}.flag{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:31px;flex-shrink:0}.flag.hk{background:#ffe4e8}.flag.cn{background:#fff0d8}.flag.jp{background:#e7edff}.dest-info{flex:1;min-width:0}.dest-info h3{font-size:19px;margin:0 0 3px}.dest-info p{font-size:12px;color:var(--muted);margin:0}.progress{height:5px;background:#f6e8ed;border-radius:9px;margin-top:10px;overflow:hidden}.progress span{height:100%;display:block;background:var(--rose);border-radius:9px}.arrow{font-size:23px;color:#caa2b2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center;color:inherit;width:100%;font-weight:400;cursor:pointer;transition:transform .15s,box-shadow .15s}.stat:active{transform:scale(.98)}.stat:focus-visible{outline:2px solid var(--rose);outline-offset:3px}.summary-dest{border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fffafb}.summary-dest h4{margin:0 0 9px;font-size:15px}.summary-record{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:7px;color:inherit}.summary-record strong{display:block;overflow-wrap:anywhere}.summary-record small{display:block;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.summary-open{margin-top:9px;width:100%}.stat strong{font-size:20px;display:block;color:var(--deep)}.stat span{font-size:11px;color:var(--muted)}.footer{text-align:center;font-size:11px;color:#b49da6;padding:24px 0 8px}.hidden{display:none!important}.back{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--deep);font-weight:800;padding:8px 0;margin:0 0 8px}.trip-head{padding:18px;border-radius:23px;margin:5px 0 16px;display:flex;align-items:center;gap:13px}.trip-head.hk{background:#ffe9ee}.trip-head.cn{background:#fff1d9}.trip-head.jp{background:#e9edff}.trip-flag{font-size:39px}.trip-head h2{font-size:24px;margin:0}.trip-head p{margin:2px 0 0;font-size:12px;color:var(--muted)}.tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 0 12px;margin-bottom:10px}.tab{white-space:nowrap;border-radius:99px;padding:9px 13px;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px}.tab.active{background:var(--rose);color:white;border-color:var(--rose)}.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:16px;box-shadow:var(--shadow);margin-bottom:13px}.panel h3{margin:0 0 12px;font-size:16px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#856b77}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fffafb;border-radius:12px;padding:11px;color:var(--text);outline:none;min-width:0}.field textarea{min-height:72px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose)}.primary{background:var(--rose);color:#fff;border-radius:13px;padding:11px 15px;font-weight:800}.secondary{background:#fff0f5;color:var(--deep);border-radius:12px;padding:9px 12px;font-weight:800}.danger{background:#fff0f0;color:#b84b5b;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:800}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.list{display:flex;flex-direction:column;gap:9px}.item{border:1px solid var(--line);border-radius:15px;padding:12px;display:flex;gap:10px;align-items:flex-start;background:#fffdfd}.item.done{background:#f8fbf8;opacity:.85}.item-main{flex:1;min-width:0}.item-title{font-weight:800;overflow-wrap:anywhere}.item.done .item-title{text-decoration:line-through;color:#8eaaa0}.item-meta{font-size:12px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.check{width:20px;height:20px;accent-color:var(--rose);margin-top:2px;flex-shrink:0}.empty{text-align:center;padding:25px 12px;color:var(--muted);font-size:13px}.empty .emoji{font-size:29px;display:block;margin-bottom:5px}.filter-row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}.filter-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fffafb}.note{font-size:12px;color:var(--muted);margin-top:8px}.money{color:var(--deep);font-weight:800}.itinerary-day{border-left:3px solid var(--pink);padding:0 0 4px 14px;margin:12px 0}.itinerary-day h4{margin:0 0 8px}.day-item{background:#fff8fa;border-radius:12px;padding:10px;margin-bottom:7px}.day-item strong{display:block}.day-item small{color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#493b43;color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:10;box-shadow:var(--shadow);max-width:90%;text-align:center}.modal-bg{position:fixed;inset:0;background:#38232e66;display:grid;place-items:center;padding:18px;z-index:20}.modal{background:#fff;border-radius:22px;padding:20px;width:min(100%,500px);max-height:90vh;overflow:auto}.modal h3{margin-top:0}.modal .form-grid{margin-top:12px}.top-actions{display:flex;gap:8px}.settings{display:flex;gap:8px;flex-wrap:wrap}.count-label{background:#fff;border-radius:99px;padding:4px 9px;font-size:11px;color:var(--deep);border:1px solid var(--line)}@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.destination:last-child .dest-info{max-width:75%}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:18px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -224,16 +124,10 @@ button{cursor:pointer;border:0}
   const fresh = () => ({version:1,currency:'HKD',destinations:{hk:{shopping:[],places:[],food:[],itinerary:[],expenses:[]},cn:{shopping:[],places:[],food:[],itinerary:[],expenses:[]},jp:{shopping:[],places:[],food:[],itinerary:[],expenses:[]}}});
   let data = loadData(), currentDest = 'hk', currentTab = 'shopping', toastTimer;
   const $ = id => document.getElementById(id);
-
   function loadData(){
-    try {
-      const raw=localStorage.getItem(KEY);
-      if(!raw) return fresh();
-      const parsed=JSON.parse(raw);
-      return normalize(parsed);
-    } catch(e){ return fresh(); }
+    try { const raw=localStorage.getItem(KEY); if(!raw) return fresh(); const parsed=JSON.parse(raw); return normalize(parsed); }
+    catch(e){ return fresh(); }
   }
-
   function normalize(parsed){
     const base=fresh();
     if(parsed && parsed.destinations){
@@ -245,60 +139,25 @@ button{cursor:pointer;border:0}
     }
     return base;
   }
-
-  function save(){
-    try{
-      localStorage.setItem(KEY,JSON.stringify(data));
-      renderHome();
-    }catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');}
-  }
-
-  function showToast(message){
-    const t=$('toast');
-    t.textContent=message;
-    t.classList.remove('hidden');
-    clearTimeout(toastTimer);
-    toastTimer=setTimeout(()=>t.classList.add('hidden'),2400);
-  }
-
-  function escapeHTML(value){
-    return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-
-  function currency(v,code=data.currency){
-    if(v===null||v===undefined||v==='')return '';
-    const sym={HKD:'HK$',CNY:'CN¥',JPY:'JP¥',CAD:'C$'}[code]||'HK$';
-    return sym+Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
-  }
-
-  function countRecords(d){
-    return d.shopping.length+d.places.length+d.food.length+d.itinerary.length+(d.expenses||[]).length;
-  }
-
+  function save(){ try{localStorage.setItem(KEY,JSON.stringify(data));renderHome();}catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');} }
+  function showToast(message){const t=$('toast');t.textContent=message;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2400);}
+  function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function currency(v,code=data.currency){if(v===null||v===undefined||v==='')return '';const sym={HKD:'HK$',CNY:'CN¥',JPY:'JP¥',CAD:'C$'}[code]||'HK$';return sym+Number(v).toLocaleString(undefined,{maximumFractionDigits:2});}
+  function countRecords(d){return d.shopping.length+d.places.length+d.food.length+d.itinerary.length+(d.expenses||[]).length;}
   function renderHome(){
     let shopping=0,places=0,food=0;
     for(const k of Object.keys(DESTS)){
       const d=data.destinations[k];
-      shopping+=d.shopping.filter(x=>!x.done).length;
-      places+=d.places.filter(x=>!x.done).length;
-      food+=d.food.filter(x=>!x.done).length;
-      const total=countRecords(d);
-      const done=d.shopping.filter(x=>x.done).length+d.places.filter(x=>x.done).length+d.food.filter(x=>x.done).length;
+      shopping+=d.shopping.filter(x=>!x.done).length;places+=d.places.filter(x=>!x.done).length;food+=d.food.filter(x=>!x.done).length;
+      const total=countRecords(d), done=d.shopping.filter(x=>x.done).length+d.places.filter(x=>x.done).length+d.food.filter(x=>x.done).length;
       const p=total?Math.round(done/total*100):0;
       $('prog-'+k).style.width=p+'%';
       $('sum-'+k).textContent=total?`${total} 項記錄 · ${done} 項已完成`:'仲未開始計劃';
     }
-    $('allShopping').textContent=shopping;
-    $('allPlaces').textContent=places;
-    $('allFood').textContent=food;
+    $('allShopping').textContent=shopping;$('allPlaces').textContent=places;$('allFood').textContent=food;
   }
-
   function renderSummary(type){
-    const config={
-      shopping:{title:'🛍️ 想買嘅嘢',list:'shopping',empty:'暫時未有想買嘅物品。'},
-      places:{title:'📍 想去嘅地方',list:'places',empty:'暫時未有想去嘅地方。'},
-      food:{title:'🍜 想食嘅嘢',list:'food',empty:'暫時未有想食嘅嘢。'}
-    }[type];
+    const config={shopping:{title:'🛍️ 想買嘅嘢',list:'shopping',empty:'暫時未有想買嘅物品。'},places:{title:'📍 想去嘅地方',list:'places',empty:'暫時未有想去嘅地方。'},food:{title:'🍜 想食嘅嘢',list:'food',empty:'暫時未有想食嘅嘢。'}}[type];
     if(!config)return;
     $('summaryTitle').textContent=config.title;
     const groups=Object.keys(DESTS).map(key=>{
@@ -330,40 +189,22 @@ button{cursor:pointer;border:0}
     $('summaryContent').innerHTML=groups;
     $('summaryModal').classList.remove('hidden');
   }
-
-  function defaultCurrencyForDest(key=currentDest){
-    return ({hk:'HKD',cn:'CNY',jp:'JPY'}[key]||'CAD');
-  }
-
+  function defaultCurrencyForDest(key=currentDest){return ({hk:'HKD',cn:'CNY',jp:'JPY'}[key]||'CAD');}
   function openDest(key){
-    currentDest=key;
-    const d=DESTS[key];
-    $('shopCurrency').value=defaultCurrencyForDest(key);
-    $('expenseCurrency').value=defaultCurrencyForDest(key);
-    $('homeView').classList.add('hidden');
-    $('destView').classList.remove('hidden');
-    $('tripHead').className='trip-head '+d.theme;
-    $('tripFlag').textContent=d.flag;
-    $('tripName').textContent=d.name;
-    switchTab('shopping');
-    renderAll();
+    currentDest=key;const d=DESTS[key];
+    $('shopCurrency').value=defaultCurrencyForDest(key);$('expenseCurrency').value=defaultCurrencyForDest(key);
+    $('homeView').classList.add('hidden');$('destView').classList.remove('hidden');
+    $('tripHead').className='trip-head '+d.theme;$('tripFlag').textContent=d.flag;$('tripName').textContent=d.name;
+    switchTab('shopping');renderAll();
     window.scrollTo({top:0,behavior:'smooth'});
   }
-
-  function goHome(){
-    $('destView').classList.add('hidden');
-    $('homeView').classList.remove('hidden');
-    renderHome();
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-
+  function goHome(){$('destView').classList.add('hidden');$('homeView').classList.remove('hidden');renderHome();window.scrollTo({top:0,behavior:'smooth'});}
   function switchTab(tab){
     currentTab=tab;
     document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
     document.querySelectorAll('.tab-content').forEach(s=>s.classList.toggle('hidden',s.id!=='tab-'+tab));
     renderAll();
   }
-
   function renderAll(){
     const d=data.destinations[currentDest];
     $('tripCount').textContent=countRecords(d)+' 項記錄';
@@ -374,222 +215,97 @@ button{cursor:pointer;border:0}
     renderList('expenses',d.expenses||[],$('expensesList'),$('expenseSearch').value);
     renderExpenseTotals(d.expenses||[]);
   }
-
   function itemHTML(type,item){
-    const done=!!item.done;
+    const done=!!item.done, names={shopping:'購物',places:'地方',food:'美食'};
     let details=[];
-    if(type==='shopping'){
-      if(item.brand)details.push('品牌：'+item.brand);
-      if(item.store)details.push('購買地點：'+item.store);
-      if(item.budget)details.push('預算：'+currency(item.budget,item.currency||data.currency));
-      if(item.currency)details.push('貨幣：'+({CAD:'加幣 CAD',HKD:'港幣 HKD',JPY:'日圓 JPY',CNY:'人民幣 CNY'}[item.currency]||item.currency));
-    }
-    if(type==='places'){
-      if(item.type)details.push(item.type);
-      if(item.address)details.push('📍 '+item.address);
-      if(item.link)details.push('🔗 '+item.link);
-    }
-    if(type==='food'){
-      if(item.dish)details.push('必食：'+item.dish);
-      if(item.address)details.push('📍 '+item.address);
-      if(item.budget)details.push('人均：'+currency(item.budget));
-      if(item.link)details.push('🔗 '+item.link);
-    }
-    if(type==='expenses'){
-      details.push((item.date||'日期未定')+' · '+(item.category||'其他'));
-      details.push('金額：'+currency(item.amount,item.currency||'HKD'));
-      if(item.payment)details.push('付款：'+item.payment);
-    }
+    if(type==='shopping'){if(item.brand)details.push('品牌：'+item.brand);if(item.store)details.push('購買地點：'+item.store);if(item.budget)details.push('預算：'+currency(item.budget,item.currency||data.currency));if(item.currency)details.push('貨幣：'+({CAD:'加幣 CAD',HKD:'港幣 HKD',JPY:'日圓 JPY',CNY:'人民幣 CNY'}[item.currency]||item.currency));}
+    if(type==='places'){if(item.type)details.push(item.type);if(item.address)details.push('📍 '+item.address);if(item.link)details.push('🔗 '+item.link);}
+    if(type==='food'){if(item.dish)details.push('必食：'+item.dish);if(item.address)details.push('📍 '+item.address);if(item.budget)details.push('人均：'+currency(item.budget));if(item.link)details.push('🔗 '+item.link);}
+    if(type==='expenses'){details.push((item.date||'日期未定')+' · '+(item.category||'其他'));details.push('金額：'+currency(item.amount,item.currency||'HKD'));if(item.payment)details.push('付款：'+item.payment);}
     if(item.notes)details.push('備註：'+item.notes);
     const title=item.name||'未命名';
     return `<article class="item ${done?'done':''}">${type==='expenses'?'':`<input class="check" type="checkbox" data-action="toggle" data-type="${type}" data-id="${escapeHTML(item.id)}" ${done?'checked':''} aria-label="標記完成">`}<div class="item-main"><div class="item-title">${escapeHTML(title)}</div>${details.length?`<div class="item-meta">${details.map(escapeHTML).join('\n')}</div>`:''}</div><div class="item-actions">${type==='places'&&item.link?`<button class="secondary" data-action="link" data-url="${escapeHTML(item.link)}">開啟</button>`:''}${type==='food'&&item.link?`<button class="secondary" data-action="link" data-url="${escapeHTML(item.link)}">開啟</button>`:''}<button class="secondary" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">修改</button><button class="danger" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">刪除</button></div></article>`;
   }
-
   function renderExpenseTotals(items){
-    const totals={};
-    items.forEach(item=>{
-      const code=['CAD','HKD','JPY','CNY'].includes(item.currency)?item.currency:'HKD';
-      totals[code]=(totals[code]||0)+Number(item.amount||0);
-    });
+    const totals={}; items.forEach(item=>{const code=['CAD','HKD','JPY','CNY'].includes(item.currency)?item.currency:'HKD';totals[code]=(totals[code]||0)+Number(item.amount||0);});
     const labels={CAD:'🇨🇦 加幣 CAD',HKD:'🇭🇰 港幣 HKD',JPY:'🇯🇵 日圓 JPY',CNY:'🇨🇳 人民幣 CNY'};
     const el=$('expenseTotals');
     const rows=Object.keys(totals).filter(k=>totals[k]!==0).map(k=>`${labels[k]}：${currency(totals[k],k)}`);
     el.innerHTML=rows.length?rows.map(x=>`<div style="margin:4px 0;font-weight:800;color:var(--deep)">${escapeHTML(x)}</div>`).join(''):'暫時未有開支';
   }
-
   function renderList(type,items,container,query=''){
     const q=query.trim().toLowerCase();
     const filtered=items.filter(i=>JSON.stringify(i).toLowerCase().includes(q));
-    if(!filtered.length){
-      container.innerHTML=`<div class="empty"><span class="emoji">${type==='shopping'?'🛍️':type==='places'?'📍':'🍜'}</span>${q?'搵唔到相關記錄。':'仲未有記錄，喺上面新增第一項啦！'}</div>`;
-      return;
-    }
+    if(!filtered.length){container.innerHTML=`<div class="empty"><span class="emoji">${type==='shopping'?'🛍️':type==='places'?'📍':'🍜'}</span>${q?'搵唔到相關記錄。':'仲未有記錄，喺上面新增第一項啦！'}</div>`;return;}
     container.innerHTML=filtered.map(i=>itemHTML(type,i)).join('');
   }
-
   function renderItinerary(items){
     const el=$('itineraryList');
-    if(!items.length){
-      el.innerHTML='<div class="empty"><span class="emoji">🗓️</span>仲未有行程，先新增一個活動啦！</div>';
-      return;
-    }
+    if(!items.length){el.innerHTML='<div class="empty"><span class="emoji">🗓️</span>仲未有行程，先新增一個活動啦！</div>';return;}
     const sorted=[...items].sort((a,b)=>(a.date||'').localeCompare(b.date||'')||(a.time||'').localeCompare(b.time||''));
-    const groups={};
-    sorted.forEach(i=>(groups[i.date||'未定日期']??=[]).push(i));
+    const groups={};sorted.forEach(i=>(groups[i.date||'未定日期']??=[]).push(i));
     el.innerHTML=Object.entries(groups).map(([date,rows])=>`<div class="itinerary-day"><h4>📅 ${escapeHTML(date)}</h4>${rows.map(i=>`<div class="day-item"><strong>${escapeHTML(i.time||'時間未定')} · ${escapeHTML(i.title)}</strong><small>${escapeHTML(i.type||'')}${i.location?' · '+escapeHTML(i.location):''}</small>${i.notes?`<div class="item-meta">${escapeHTML(i.notes)}</div>`:''}<div class="item-actions" style="margin-top:8px;justify-content:flex-start"><button class="secondary" data-action="edit" data-type="itinerary" data-id="${escapeHTML(i.id)}">修改</button><button class="danger" data-action="delete" data-type="itinerary" data-id="${escapeHTML(i.id)}">刪除</button></div></div>`).join('')}</div>`).join('');
   }
-
-  const formMap={
-    shopping:{form:'shoppingForm',list:'shopping',submit:'shopSubmit',cancel:'shopCancel',default:'＋ 加入購物清單',edit:'儲存修改'},
-    places:{form:'placesForm',list:'places',submit:'placeSubmit',cancel:'placeCancel',default:'＋ 加入想去地方',edit:'儲存修改'},
-    food:{form:'foodForm',list:'food',submit:'foodSubmit',cancel:'foodCancel',default:'＋ 加入美食清單',edit:'儲存修改'},
-    itinerary:{form:'itineraryForm',list:'itinerary',submit:'itSubmit',cancel:'itCancel',default:'＋ 加入行程',edit:'儲存修改'},
-    expenses:{form:'expensesForm',list:'expenses',submit:'expenseSubmit',cancel:'expenseCancel',default:'＋ 記低開支',edit:'儲存修改'}
-  };
-
-  function formValues(form){
-    const obj={};
-    new FormData(form).forEach((v,k)=>{if(k!=='id')obj[k]=String(v).trim();});
-    return obj;
-  }
-
-  function resetForm(type){
-    const cfg=formMap[type],f=$(cfg.form);
-    f.reset();
-    f.elements.id.value='';
-    if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();
-    if(type==='expenses'){
-      $('expenseCurrency').value=defaultCurrencyForDest();
-      $('expenseDate').value=new Date().toLocaleDateString('en-CA');
-    }
-    $(cfg.submit).textContent=cfg.default;
-    $(cfg.cancel).classList.add('hidden');
-  }
-
+  const formMap={shopping:{form:'shoppingForm',list:'shopping',submit:'shopSubmit',cancel:'shopCancel',default:'＋ 加入購物清單',edit:'儲存修改'},places:{form:'placesForm',list:'places',submit:'placeSubmit',cancel:'placeCancel',default:'＋ 加入想去地方',edit:'儲存修改'},food:{form:'foodForm',list:'food',submit:'foodSubmit',cancel:'foodCancel',default:'＋ 加入美食清單',edit:'儲存修改'},itinerary:{form:'itineraryForm',list:'itinerary',submit:'itSubmit',cancel:'itCancel',default:'＋ 加入行程',edit:'儲存修改'},expenses:{form:'expensesForm',list:'expenses',submit:'expenseSubmit',cancel:'expenseCancel',default:'＋ 記低開支',edit:'儲存修改'}};
+  function formValues(form){const obj={};new FormData(form).forEach((v,k)=>{if(k!=='id')obj[k]=String(v).trim();});return obj;}
+  function resetForm(type){const cfg=formMap[type],f=$(cfg.form);f.reset();f.elements.id.value='';if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();if(type==='expenses'){$('expenseCurrency').value=defaultCurrencyForDest();$('expenseDate').value=new Date().toLocaleDateString('en-CA');}$(cfg.submit).textContent=cfg.default;$(cfg.cancel).classList.add('hidden');}
   function startEdit(type,id){
-    const item=data.destinations[currentDest][type].find(x=>x.id===id);
-    if(!item)return;
-    const cfg=formMap[type],f=$(cfg.form);
-    f.reset();
-    if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();
-    if(type==='expenses')$('expenseCurrency').value=defaultCurrencyForDest();
-    f.elements.id.value=item.id;
-    for(const [k,v] of Object.entries(item)){
-      if(k!=='id'&&f.elements[k])f.elements[k].value=v??'';
-    }
-    $(cfg.submit).textContent=cfg.edit;
-    $(cfg.cancel).classList.remove('hidden');
+    const item=data.destinations[currentDest][type].find(x=>x.id===id);if(!item)return;
+    const cfg=formMap[type],f=$(cfg.form);f.reset();if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();if(type==='expenses')$('expenseCurrency').value=defaultCurrencyForDest();f.elements.id.value=item.id;
+    for(const [k,v] of Object.entries(item)){if(k!=='id'&&f.elements[k])f.elements[k].value=v??'';}
+    $(cfg.submit).textContent=cfg.edit;$(cfg.cancel).classList.remove('hidden');
     f.scrollIntoView({behavior:'smooth',block:'start'});
   }
-
   function deleteItem(type,id){
     if(!confirm('確定刪除呢項記錄？'))return;
-    data.destinations[currentDest][type]=data.destinations[currentDest][type].filter(x=>x.id!==id);
-    save();
-    renderAll();
-    showToast('已刪除記錄');
+    data.destinations[currentDest][type]=data.destinations[currentDest][type].filter(x=>x.id!==id);save();renderAll();showToast('已刪除記錄');
   }
-
   function submitForm(type,event){
-    event.preventDefault();
-    const cfg=formMap[type],f=$(cfg.form),v=formValues(f),id=f.elements.id.value;
+    event.preventDefault();const cfg=formMap[type],f=$(cfg.form),v=formValues(f),id=f.elements.id.value;
     const title=(type==='itinerary'?v.title:v.name)||'';
     if(!title){showToast('請先填寫名稱');return;}
     if(type==='shopping'&&!v.currency)v.currency='CAD';
     if(type==='expenses'&&!v.currency)v.currency='CAD';
     const arr=data.destinations[currentDest][type];
-    if(id){
-      const idx=arr.findIndex(x=>x.id===id);
-      if(idx>=0)arr[idx]={...arr[idx],...v,id};
-    }else{
-      arr.push({...v,id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+'_'+Math.random().toString(36).slice(2),done:false,createdAt:new Date().toISOString()});
-    }
-    save();
-    resetForm(type);
-    renderAll();
-    showToast(id?'已儲存修改':'已新增記錄');
+    if(id){const idx=arr.findIndex(x=>x.id===id);if(idx>=0)arr[idx]={...arr[idx],...v,id};}
+    else arr.push({...v,id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+'_'+Math.random().toString(36).slice(2),done:false,createdAt:new Date().toISOString()});
+    save();resetForm(type);renderAll();showToast(id?'已儲存修改':'已新增記錄');
   }
-
   function exportData(){
     const blob=new Blob([JSON.stringify({...data,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
-    const url=URL.createObjectURL(blob),a=document.createElement('a');
-    a.href=url;
-    a.download='Travel-Buddy-旅行手帳備份.json';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-    showToast('已準備匯出備份檔案');
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Travel-Buddy-旅行手帳備份.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast('已準備匯出備份檔案');
   }
-
   function importData(file){
-    if(!file)return;
-    const reader=new FileReader();
-    reader.onload=()=>{
-      try{
-        const parsed=JSON.parse(reader.result);
-        if(!parsed.destinations)throw new Error('bad');
-        if(!confirm('匯入會以備份檔內容取代目前資料，確定繼續？'))return;
-        data=normalize(parsed);
-        save();
-        $('currency').value=data.currency;
-        $('shopCurrency').value='HKD';
-        $('expenseCurrency').value='HKD';
-        renderAll();
-        showToast('備份匯入成功');
-      }catch(e){showToast('檔案格式不正確，未能匯入');}
-    };
+    if(!file)return;const reader=new FileReader();
+    reader.onload=()=>{try{const parsed=JSON.parse(reader.result);if(!parsed.destinations)throw new Error('bad');if(!confirm('匯入會以備份檔內容取代目前資料，確定繼續？'))return;data=normalize(parsed);save();$('currency').value=data.currency; $('shopCurrency').value='HKD'; $('expenseCurrency').value='HKD';renderAll();showToast('備份匯入成功');}catch(e){showToast('檔案格式不正確，未能匯入');}};
     reader.readAsText(file);
   }
-
   document.querySelectorAll('[data-dest]').forEach(b=>b.addEventListener('click',()=>openDest(b.dataset.dest)));
   $('backHome').addEventListener('click',goHome);
   document.querySelectorAll('[data-summary]').forEach(b=>b.addEventListener('click',()=>renderSummary(b.dataset.summary)));
   $('closeSummary').addEventListener('click',()=>$('summaryModal').classList.add('hidden'));
-
   $('summaryModal').addEventListener('click',e=>{
-    if(e.target===$('summaryModal')){
-      $('summaryModal').classList.add('hidden');
-      return;
-    }
-    const target=e.target.closest('[data-summary-open]');
-    if(!target)return;
+    if(e.target===$('summaryModal')){$('summaryModal').classList.add('hidden');return;}
+    const target=e.target.closest('[data-summary-open]');if(!target)return;
     const key=target.dataset.summaryOpen,tab=target.dataset.summaryTab;
-    $('summaryModal').classList.add('hidden');
-    openDest(key);
-    switchTab(tab);
+    $('summaryModal').classList.add('hidden');openDest(key);switchTab(tab);
   });
-
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
-
   for(const type of Object.keys(formMap)){
     $(formMap[type].form).addEventListener('submit',e=>submitForm(type,e));
     $(formMap[type].cancel).addEventListener('click',()=>resetForm(type));
   }
-
   document.addEventListener('click',e=>{
-    const el=e.target.closest('[data-action]');
-    if(!el)return;
+    const el=e.target.closest('[data-action]');if(!el)return;
     const {action,type,id,url}=el.dataset;
     if(action==='edit')startEdit(type,id);
     if(action==='delete')deleteItem(type,id);
     if(action==='toggle'){
-      const item=data.destinations[currentDest][type].find(x=>x.id===id);
-      if(item){item.done=el.checked;save();renderAll();}
+      const item=data.destinations[currentDest][type].find(x=>x.id===id);if(item){item.done=el.checked;save();renderAll();}
     }
-    if(action==='link'){
-      try{
-        const safe=new URL(url);
-        if(['http:','https:'].includes(safe.protocol))window.open(safe.href,'_blank','noopener');
-        else showToast('連結格式不正確');
-      }catch(err){showToast('連結格式不正確');}
-    }
+    if(action==='link'){try{const safe=new URL(url);if(['http:','https:'].includes(safe.protocol))window.open(safe.href,'_blank','noopener');else showToast('連結格式不正確');}catch(err){showToast('連結格式不正確');}}
   });
-
-  $('shopSearch').addEventListener('input',renderAll);
-  $('placeSearch').addEventListener('input',renderAll);
-  $('foodSearch').addEventListener('input',renderAll);
-  $('expenseSearch').addEventListener('input',renderAll);
+  $('shopSearch').addEventListener('input',renderAll);$('placeSearch').addEventListener('input',renderAll);$('foodSearch').addEventListener('input',renderAll);$('expenseSearch').addEventListener('input',renderAll);
   $('expenseDate').value=new Date().toLocaleDateString('en-CA');
   $('backupBtn').addEventListener('click',exportData);
   $('settingsBtn').addEventListener('click',()=>$('settingsModal').classList.remove('hidden'));
@@ -600,15 +316,7 @@ button{cursor:pointer;border:0}
   $('importFile').addEventListener('change',e=>{importData(e.target.files[0]);e.target.value='';});
   $('currency').value=data.currency;
   $('currency').addEventListener('change',()=>{data.currency=$('currency').value;save();renderAll();showToast('已更新貨幣顯示');});
-  $('clearData').addEventListener('click',()=>{
-    if(confirm('呢個動作會清除香港、中國、日本全部清單，確定要繼續？')){
-      data=fresh();
-      save();
-      $('currency').value=data.currency;
-      renderAll();
-      showToast('已清除全部資料');
-    }
-  });
+  $('clearData').addEventListener('click',()=>{if(confirm('呢個動作會清除香港、中國、日本全部清單，確定要繼續？')){data=fresh();save();$('currency').value=data.currency;renderAll();showToast('已清除全部資料');}});
   renderHome();
 })();
 </script>
