@@ -9,7 +9,7 @@
 <title>Travel Buddy 旅行手帳</title>
 <style>
 :root{--bg:#fff8f8;--paper:#fff;--pink:#f4b8cb;--pink2:#ffe4ec;--rose:#c66f91;--deep:#8c4964;--text:#493b43;--muted:#9a858e;--line:#f2dce4;--cream:#fff1e9;--green:#dcefe4;--shadow:0 8px 24px #a75e7812}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:760px;margin:0 auto;min-height:100vh;padding:0 16px 34px}.top{padding:calc(18px + env(safe-area-inset-top)) 0 12px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:15px;background:var(--pink2);display:grid;place-items:center;font-size:24px}.brand h1{font-size:19px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.pill{border-radius:99px;background:#fff;border:1px solid var(--line);padding:8px 12px;color:var(--deep);font-weight:700}.hero{background:linear-gradient(135deg,#ffe4ec,#fff0e7);border-radius:25px;padding:22px;position:relative;overflow:hidden;margin:8px 0 20px}.hero:after{content:"✈️";position:absolute;right:20px;top:12px;font-size:34px;opacity:.75}.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--rose)}.hero h2{font-size:25px;line-height:1.25;margin:8px 0}.hero p{color:#856e78;margin:0;max-width:80%}.section-head{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 12px}.section-head h2{font-size:18px;margin:0}.small{font-size:12px;color:var(--muted)}.destinations{display:grid;grid-template-columns:1fr;gap:12px}.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit;transition:transform .15s}.destination:active{transform:scale(.99)}.flag{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:31px;flex-shrink:0}.flag.hk{background:#ffe4e8}.flag.cn{background:#fff0d8}.flag.jp{background:#e7edff}.dest-info{flex:1;min-width:0}.dest-info h3{font-size:19px;margin:0 0 3px}.dest-info p{font-size:12px;color:var(--muted);margin:0}.progress{height:5px;background:#f6e8ed;border-radius:9px;margin-top:10px;overflow:hidden}.progress span{height:100%;display:block;background:var(--rose);border-radius:9px}.arrow{font-size:23px;color:#caa2b2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center;color:inherit;width:100%;font-weight:400;cursor:pointer;transition:transform .15s,box-shadow .15s}.stat:active{transform:scale(.98)}.stat:focus-visible{outline:2px solid var(--rose);outline-offset:3px}.summary-dest{border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fffafb}.summary-dest h4{margin:0 0 9px;font-size:15px}.summary-record{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:7px;color:inherit}.summary-record strong{display:block;overflow-wrap:anywhere}.summary-record small{display:block;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.summary-open{margin-top:9px;width:100%}.stat strong{font-size:20px;display:block;color:var(--deep)}.stat span{font-size:11px;color:var(--muted)}.footer{text-align:center;font-size:11px;color:#b49da6;padding:24px 0 8px}.hidden{display:none!important}.back{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--deep);font-weight:800;padding:8px 0;margin:0 0 8px}.trip-head{padding:18px;border-radius:23px;margin:5px 0 16px;display:flex;align-items:center;gap:13px}.trip-head.hk{background:#ffe9ee}.trip-head.cn{background:#fff1d9}.trip-head.jp{background:#e9edff}.trip-flag{font-size:39px}.trip-head h2{font-size:24px;margin:0}.trip-head p{margin:2px 0 0;font-size:12px;color:var(--muted)}.tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 0 12px;margin-bottom:10px}.tab{white-space:nowrap;border-radius:99px;padding:9px 13px;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px}.tab.active{background:var(--rose);color:white;border-color:var(--rose)}.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:16px;box-shadow:var(--shadow);margin-bottom:13px}.panel h3{margin:0 0 12px;font-size:16px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#856b77}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fffafb;border-radius:12px;padding:11px;color:var(--text);outline:none;min-width:0}.field textarea{min-height:72px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose)}.primary{background:var(--rose);color:#fff;border-radius:13px;padding:11px 15px;font-weight:800}.secondary{background:#fff0f5;color:var(--deep);border-radius:12px;padding:9px 12px;font-weight:800}.danger{background:#fff0f0;color:#b84b5b;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:800}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.list{display:flex;flex-direction:column;gap:9px}.item{border:1px solid var(--line);border-radius:15px;padding:12px;display:flex;gap:10px;align-items:flex-start;background:#fffdfd}.item.done{background:#f8fbf8;opacity:.85}.item-main{flex:1;min-width:0}.item-title{font-weight:800;overflow-wrap:anywhere}.item.done .item-title{text-decoration:line-through;color:#8eaaa0}.item-meta{font-size:12px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.check{width:20px;height:20px;accent-color:var(--rose);margin-top:2px;flex-shrink:0}.empty{text-align:center;padding:25px 12px;color:var(--muted);font-size:13px}.empty .emoji{font-size:29px;display:block;margin-bottom:5px}.filter-row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}.filter-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fffafb}.note{font-size:12px;color:var(--muted);margin-top:8px}.money{color:var(--deep);font-weight:800}.itinerary-day{border-left:3px solid var(--pink);padding:0 0 4px 14px;margin:12px 0}.itinerary-day h4{margin:0 0 8px}.day-item{background:#fff8fa;border-radius:12px;padding:10px;margin-bottom:7px}.day-item strong{display:block}.day-item small{color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#493b43;color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:10;box-shadow:var(--shadow);max-width:90%;text-align:center}.modal-bg{position:fixed;inset:0;background:#38232e66;display:grid;place-items:center;padding:18px;z-index:20}.modal{background:#fff;border-radius:22px;padding:20px;width:min(100%,500px);max-height:90vh;overflow:auto}.modal h3{margin-top:0}.modal .form-grid{margin-top:12px}.top-actions{display:flex;gap:8px}.settings{display:flex;gap:8px;flex-wrap:wrap}.count-label{background:#fff;border-radius:99px;padding:4px 9px;font-size:11px;color:var(--deep);border:1px solid var(--line)}@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.destination:last-child .dest-info{max-width:75%}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:18px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:760px;margin:0 auto;min-height:100vh;padding:0 16px 34px}.top{padding:calc(18px + env(safe-area-inset-top)) 0 12px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:15px;background:var(--pink2);display:grid;place-items:center;font-size:24px}.brand h1{font-size:19px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.pill{border-radius:99px;background:#fff;border:1px solid var(--line);padding:8px 12px;color:var(--deep);font-weight:700}.hero{background:linear-gradient(135deg,#ffe4ec,#fff0e7);border-radius:25px;padding:22px;position:relative;overflow:hidden;margin:8px 0 20px}.hero:after{content:"✈️";position:absolute;right:20px;top:12px;font-size:34px;opacity:.75}.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--rose)}.hero h2{font-size:25px;line-height:1.25;margin:8px 0}.hero p{color:#856e78;margin:0;max-width:80%}.section-head{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 12px}.section-head h2{font-size:18px;margin:0}.section-title-actions{display:flex;align-items:center;gap:10px}.add-destination{width:38px;height:38px;border-radius:14px;background:var(--rose);color:#fff;font-size:25px;line-height:1;box-shadow:var(--shadow)}.small{font-size:12px;color:var(--muted)}.destinations{display:grid;grid-template-columns:1fr;gap:12px}.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit;transition:transform .15s}.destination:active{transform:scale(.99)}.flag{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:31px;flex-shrink:0}.flag.hk{background:#ffe4e8}.flag.cn{background:#fff0d8}.flag.jp{background:#e7edff}.flag.custom{background:#f5e6ff}.dest-info{flex:1;min-width:0}.dest-info h3{font-size:19px;margin:0 0 3px}.dest-info p{font-size:12px;color:var(--muted);margin:0}.progress{height:5px;background:#f6e8ed;border-radius:9px;margin-top:10px;overflow:hidden}.progress span{height:100%;display:block;background:var(--rose);border-radius:9px}.arrow{font-size:23px;color:#caa2b2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center;color:inherit;width:100%;font-weight:400;cursor:pointer;transition:transform .15s,box-shadow .15s}.stat:active{transform:scale(.98)}.stat:focus-visible{outline:2px solid var(--rose);outline-offset:3px}.summary-dest{border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fffafb}.summary-dest h4{margin:0 0 9px;font-size:15px}.summary-record{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:7px;color:inherit}.summary-record strong{display:block;overflow-wrap:anywhere}.summary-record small{display:block;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.summary-open{margin-top:9px;width:100%}.stat strong{font-size:20px;display:block;color:var(--deep)}.stat span{font-size:11px;color:var(--muted)}.footer{text-align:center;font-size:11px;color:#b49da6;padding:24px 0 8px}.hidden{display:none!important}.back{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--deep);font-weight:800;padding:8px 0;margin:0 0 8px}.trip-head{padding:18px;border-radius:23px;margin:5px 0 16px;display:flex;align-items:center;gap:13px}.trip-head.hk{background:#ffe9ee}.trip-head.cn{background:#fff1d9}.trip-head.jp{background:#e9edff}.trip-head.custom{background:#f5e6ff}.trip-flag{font-size:39px}.trip-head h2{font-size:24px;margin:0}.trip-head p{margin:2px 0 0;font-size:12px;color:var(--muted)}.tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 0 12px;margin-bottom:10px}.tab{white-space:nowrap;border-radius:99px;padding:9px 13px;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px}.tab.active{background:var(--rose);color:white;border-color:var(--rose)}.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:16px;box-shadow:var(--shadow);margin-bottom:13px}.panel h3{margin:0 0 12px;font-size:16px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#856b77}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fffafb;border-radius:12px;padding:11px;color:var(--text);outline:none;min-width:0}.field textarea{min-height:72px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose)}.primary{background:var(--rose);color:#fff;border-radius:13px;padding:11px 15px;font-weight:800}.secondary{background:#fff0f5;color:var(--deep);border-radius:12px;padding:9px 12px;font-weight:800}.danger{background:#fff0f0;color:#b84b5b;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:800}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.list{display:flex;flex-direction:column;gap:9px}.item{border:1px solid var(--line);border-radius:15px;padding:12px;display:flex;gap:10px;align-items:flex-start;background:#fffdfd}.item.done{background:#f8fbf8;opacity:.85}.item-main{flex:1;min-width:0}.item-title{font-weight:800;overflow-wrap:anywhere}.item.done .item-title{text-decoration:line-through;color:#8eaaa0}.item-meta{font-size:12px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.check{width:20px;height:20px;accent-color:var(--rose);margin-top:2px;flex-shrink:0}.empty{text-align:center;padding:25px 12px;color:var(--muted);font-size:13px}.empty .emoji{font-size:29px;display:block;margin-bottom:5px}.filter-row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}.filter-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fffafb}.note{font-size:12px;color:var(--muted);margin-top:8px}.money{color:var(--deep);font-weight:800}.itinerary-day{border-left:3px solid var(--pink);padding:0 0 4px 14px;margin:12px 0}.itinerary-day h4{margin:0 0 8px}.day-item{background:#fff8fa;border-radius:12px;padding:10px;margin-bottom:7px}.day-item strong{display:block}.day-item small{color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#493b43;color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:10;box-shadow:var(--shadow);max-width:90%;text-align:center}.modal-bg{position:fixed;inset:0;background:#38232e66;display:grid;place-items:center;padding:18px;z-index:20}.modal{background:#fff;border-radius:22px;padding:20px;width:min(100%,500px);max-height:90vh;overflow:auto}.modal h3{margin-top:0}.modal .form-grid{margin-top:12px}.top-actions{display:flex;gap:8px}.settings{display:flex;gap:8px;flex-wrap:wrap}.count-label{background:#fff;border-radius:99px;padding:4px 9px;font-size:11px;color:var(--deep);border:1px solid var(--line)}@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.destination:last-child .dest-info{max-width:75%}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:18px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -25,19 +25,15 @@
       <h2>下一站，去邊度玩？</h2>
       <p>每個地方都有自己嘅清單，慢慢計劃，安心出發。♡</p>
     </section>
-    <div class="section-head"><h2>🧳 我的旅行檔案夾</h2><span class="small">3 個目的地</span></div>
-    <section class="destinations">
-      <button class="destination" data-dest="hk"><div class="flag hk">🇭🇰</div><div class="dest-info"><h3>香港</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-hk" style="width:0%"></span></div><p id="sum-hk" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
-      <button class="destination" data-dest="cn"><div class="flag cn">🇨🇳</div><div class="dest-info"><h3>中國</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-cn" style="width:0%"></span></div><p id="sum-cn" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
-      <button class="destination" data-dest="jp"><div class="flag jp">🇯🇵</div><div class="dest-info"><h3>日本</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-jp" style="width:0%"></span></div><p id="sum-jp" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
-    </section>
+    <div class="section-head"><h2>🧳 我的旅行檔案夾</h2><div class="section-title-actions"><span class="small" id="destinationCount">3 個目的地</span><button class="add-destination" id="addDestinationBtn" type="button" aria-label="新增旅行目的地" title="新增旅行目的地">＋</button></div></div>
+    <section class="destinations" id="destinationsList"></section>
     <section class="stats">
       <button class="stat" type="button" data-summary="shopping" aria-label="查看所有想買嘅嘢"><strong id="allShopping">0</strong><span>🛍️ 想買嘅嘢　›</span></button>
       <button class="stat" type="button" data-summary="places" aria-label="查看所有想去嘅地方"><strong id="allPlaces">0</strong><span>📍 想去嘅地方　›</span></button>
       <button class="stat" type="button" data-summary="food" aria-label="查看所有想食嘅嘢"><strong id="allFood">0</strong><span>🍜 想食嘅嘢　›</span></button>
     </section>
     <div class="section-head"><h2>💗 小提示</h2></div>
-    <section class="panel"><p style="margin:0">每個檔案都會獨立儲存。撳入香港、中國或日本，就可以記低該地嘅購物清單、景點、餐廳同每日行程。記得定期按右上角「備份」，匯出一份 JSON 檔案保存呀！</p></section>
+    <section class="panel"><p style="margin:0">每個檔案都會獨立儲存。撳入任何旅行檔案，就可以記低該地嘅購物清單、景點、餐廳同每日行程。記得定期按右上角「備份」，匯出一份 JSON 檔案保存呀！</p></section>
   </main>
 
   <main id="destView" class="hidden">
@@ -108,6 +104,7 @@
     </section>
   </main>
 
+  <div id="destinationModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3>✨ 新增旅行目的地</h3><button class="secondary" id="closeDestination">✕</button></div><p class="small">例如「日本（東京）」、「日本（大阪）」或「韓國（首爾）」。每個檔案都有自己獨立嘅清單。</p><form id="destinationForm"><div class="form-grid"><div class="field full"><label for="destinationCountry">國家／地區 *</label><input id="destinationCountry" name="country" required maxlength="40" placeholder="例如：日本、韓國、台灣"></div><div class="field full"><label for="destinationCity">城市／地方（可選）</label><input id="destinationCity" name="city" maxlength="40" placeholder="例如：東京、大阪、首爾"></div><div class="field full"><label for="destinationFlag">圖示</label><select id="destinationFlag" name="flag"><option value="✈️">✈️ 旅行</option><option value="🇰🇷">🇰🇷 韓國</option><option value="🇹🇼">🇹🇼 台灣</option><option value="🇹🇭">🇹🇭 泰國</option><option value="🇸🇬">🇸🇬 新加坡</option><option value="🇬🇧">🇬🇧 英國</option><option value="🇺🇸">🇺🇸 美國</option><option value="🇨🇦">🇨🇦 加拿大</option><option value="🇫🇷">🇫🇷 法國</option><option value="🇮🇹">🇮🇹 意大利</option><option value="🌏">🌏 其他</option></select></div></div><div class="form-actions"><button class="primary" type="submit">＋ 建立旅行檔案</button><button class="secondary" type="button" id="cancelDestination">取消</button></div></form></div></div>
   <div id="summaryModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3 id="summaryTitle">📋 詳細清單</h3><button class="secondary" id="closeSummary">✕</button></div><p class="small">以下會按旅行目的地分類，清楚顯示每項記錄屬於邊度。</p><div id="summaryContent"></div></div></div>
   <div id="settingsModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3>⚙️ 設定與備份</h3><button class="secondary" id="closeSettings">✕</button></div><p class="small">資料會儲存在目前瀏覽器。定期匯出備份檔案，方便日後還原。</p><div class="settings" style="margin-top:14px"><button class="primary" id="exportBtn">↗ 匯出備份檔案</button><button class="secondary" id="importBtn">↙ 匯入備份檔案</button><input type="file" id="importFile" accept=".json,application/json" class="hidden"></div><div class="field" style="margin-top:16px"><label for="currency">預算顯示貨幣</label><select id="currency"><option value="HKD">HK$ 港幣</option><option value="CNY">¥ 人民幣</option><option value="JPY">¥ 日圓</option><option value="CAD">C$ 加幣</option></select></div><p class="note">小提示：清除瀏覽器資料或換裝置可能會令本機資料消失；匯出備份可保留資料。</p><div class="form-actions"><button class="danger" id="clearData">清除所有旅行資料</button></div></div></div>
   <div id="toast" class="toast hidden"></div>
@@ -116,12 +113,14 @@
 <script>
 (() => {
   const KEY = 'travel_buddy_files_v1';
-  const DESTS = {
+  const BUILTIN_DESTS = {
     hk:{name:'香港',flag:'🇭🇰',theme:'hk'},
     cn:{name:'中國',flag:'🇨🇳',theme:'cn'},
     jp:{name:'日本',flag:'🇯🇵',theme:'jp'}
   };
-  const fresh = () => ({version:1,currency:'HKD',destinations:{hk:{shopping:[],places:[],food:[],itinerary:[],expenses:[]},cn:{shopping:[],places:[],food:[],itinerary:[],expenses:[]},jp:{shopping:[],places:[],food:[],itinerary:[],expenses:[]}}});
+  let DESTS = {...BUILTIN_DESTS};
+  const emptyTrip = () => ({shopping:[],places:[],food:[],itinerary:[],expenses:[]});
+  const fresh = () => ({version:2,currency:'HKD',destinations:{hk:emptyTrip(),cn:emptyTrip(),jp:emptyTrip()},destinationInfo:{...BUILTIN_DESTS}});
   let data = loadData(), currentDest = 'hk', currentTab = 'shopping', toastTimer;
   const $ = id => document.getElementById(id);
   function loadData(){
@@ -132,35 +131,44 @@
     const base=fresh();
     if(parsed && parsed.destinations){
       base.currency=['HKD','CNY','JPY','CAD'].includes(parsed.currency)?parsed.currency:'HKD';
-      for(const k of Object.keys(DESTS)){
-        const d=parsed.destinations[k]||{};
-        for(const list of ['shopping','places','food','itinerary','expenses']) base.destinations[k][list]=Array.isArray(d[list])?d[list]:[];
+      const info=parsed.destinationInfo||{};
+      DESTS={...BUILTIN_DESTS};
+      for(const k of Object.keys(parsed.destinations)){
+        const old=parsed.destinations[k]||{};
+        base.destinations[k]={...emptyTrip()};
+        for(const list of ['shopping','places','food','itinerary','expenses']) base.destinations[k][list]=Array.isArray(old[list])?old[list]:[];
+        if(info[k]) DESTS[k]={name:String(info[k].name||k),flag:String(info[k].flag||'✈️'),theme:['hk','cn','jp'].includes(info[k].theme)?info[k].theme:'custom'};
+        else if(BUILTIN_DESTS[k]) DESTS[k]={...BUILTIN_DESTS[k]};
+        else DESTS[k]={name:k,flag:'✈️',theme:'custom'};
       }
+      for(const k of Object.keys(BUILTIN_DESTS)) if(!base.destinations[k]) base.destinations[k]=emptyTrip();
+      base.destinationInfo={...DESTS};
     }
     return base;
   }
-  function save(){ try{localStorage.setItem(KEY,JSON.stringify(data));renderHome();}catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');} }
+  function save(){ try{data.destinationInfo={...DESTS};localStorage.setItem(KEY,JSON.stringify(data));renderHome();}catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');} }
   function showToast(message){const t=$('toast');t.textContent=message;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2400);}
   function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
   function currency(v,code=data.currency){if(v===null||v===undefined||v==='')return '';const sym={HKD:'HK$',CNY:'CN¥',JPY:'JP¥',CAD:'C$'}[code]||'HK$';return sym+Number(v).toLocaleString(undefined,{maximumFractionDigits:2});}
   function countRecords(d){return d.shopping.length+d.places.length+d.food.length+d.itinerary.length+(d.expenses||[]).length;}
   function renderHome(){
     let shopping=0,places=0,food=0;
-    for(const k of Object.keys(DESTS)){
-      const d=data.destinations[k];
+    const list=$('destinationsList');
+    list.innerHTML=Object.keys(data.destinations).map(k=>{
+      const d=data.destinations[k],meta=DESTS[k]||{name:k,flag:'✈️',theme:'custom'};
       shopping+=d.shopping.filter(x=>!x.done).length;places+=d.places.filter(x=>!x.done).length;food+=d.food.filter(x=>!x.done).length;
-      const total=countRecords(d), done=d.shopping.filter(x=>x.done).length+d.places.filter(x=>x.done).length+d.food.filter(x=>x.done).length;
+      const total=countRecords(d),done=d.shopping.filter(x=>x.done).length+d.places.filter(x=>x.done).length+d.food.filter(x=>x.done).length;
       const p=total?Math.round(done/total*100):0;
-      $('prog-'+k).style.width=p+'%';
-      $('sum-'+k).textContent=total?`${total} 項記錄 · ${done} 項已完成`:'仲未開始計劃';
-    }
+      return `<button class="destination" data-dest="${escapeHTML(k)}"><div class="flag ${meta.theme}">${escapeHTML(meta.flag)}</div><div class="dest-info"><h3>${escapeHTML(meta.name)}</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span style="width:${p}%"></span></div><p style="margin-top:6px">${total?`${total} 項記錄 · ${done} 項已完成`:'仲未開始計劃'}</p></div><span class="arrow">›</span></button>`;
+    }).join('');
+    $('destinationCount').textContent=Object.keys(data.destinations).length+' 個目的地';
     $('allShopping').textContent=shopping;$('allPlaces').textContent=places;$('allFood').textContent=food;
   }
   function renderSummary(type){
     const config={shopping:{title:'🛍️ 想買嘅嘢',list:'shopping',empty:'暫時未有想買嘅物品。'},places:{title:'📍 想去嘅地方',list:'places',empty:'暫時未有想去嘅地方。'},food:{title:'🍜 想食嘅嘢',list:'food',empty:'暫時未有想食嘅嘢。'}}[type];
     if(!config)return;
     $('summaryTitle').textContent=config.title;
-    const groups=Object.keys(DESTS).map(key=>{
+    const groups=Object.keys(data.destinations).map(key=>{
       const items=data.destinations[key][config.list]||[];
       const records=items.map(item=>{
         const details=[];
@@ -182,16 +190,16 @@
           if(item.link)details.push('🔗 '+item.link);
         }
         if(item.notes)details.push('備註：'+item.notes);
-        return `<button type="button" class="summary-record" data-summary-open="${key}" data-summary-tab="${config.list}"><strong>${item.done?'✓ ':''}${escapeHTML(item.name||'未命名')}</strong>${details.length?`<small>${details.map(escapeHTML).join('\n')}</small>`:''}<small>撳入去查看 ${DESTS[key].name} 清單　›</small></button>`;
+        return `<button type="button" class="summary-record" data-summary-open="${key}" data-summary-tab="${config.list}"><strong>${item.done?'✓ ':''}${escapeHTML(item.name||'未命名')}</strong>${details.length?`<small>${details.map(escapeHTML).join('\n')}</small>`:''}<small>撳入去查看 ${(DESTS[key]||{name:key}).name} 清單　›</small></button>`;
       }).join('');
-      return `<section class="summary-dest"><h4>${DESTS[key].flag} ${DESTS[key].name} <span class="count-label">${items.length} 項</span></h4>${records||'<div class="small">呢個地方暫時未有記錄。</div>'}<button type="button" class="secondary summary-open" data-summary-open="${key}" data-summary-tab="${config.list}">開啟${DESTS[key].name}完整清單 →</button></section>`;
+      return `<section class="summary-dest"><h4>${(DESTS[key]||{flag:'✈️'}).flag} ${(DESTS[key]||{name:key}).name} <span class="count-label">${items.length} 項</span></h4>${records||'<div class="small">呢個地方暫時未有記錄。</div>'}<button type="button" class="secondary summary-open" data-summary-open="${key}" data-summary-tab="${config.list}">開啟${(DESTS[key]||{name:key}).name}完整清單 →</button></section>`;
     }).join('');
     $('summaryContent').innerHTML=groups;
     $('summaryModal').classList.remove('hidden');
   }
   function defaultCurrencyForDest(key=currentDest){return ({hk:'HKD',cn:'CNY',jp:'JPY'}[key]||'CAD');}
   function openDest(key){
-    currentDest=key;const d=DESTS[key];
+    currentDest=key;const d=DESTS[key]||{name:key,flag:'✈️',theme:'custom'};
     $('shopCurrency').value=defaultCurrencyForDest(key);$('expenseCurrency').value=defaultCurrencyForDest(key);
     $('homeView').classList.add('hidden');$('destView').classList.remove('hidden');
     $('tripHead').className='trip-head '+d.theme;$('tripFlag').textContent=d.flag;$('tripName').textContent=d.name;
@@ -280,7 +288,12 @@
     reader.onload=()=>{try{const parsed=JSON.parse(reader.result);if(!parsed.destinations)throw new Error('bad');if(!confirm('匯入會以備份檔內容取代目前資料，確定繼續？'))return;data=normalize(parsed);save();$('currency').value=data.currency; $('shopCurrency').value='HKD'; $('expenseCurrency').value='HKD';renderAll();showToast('備份匯入成功');}catch(e){showToast('檔案格式不正確，未能匯入');}};
     reader.readAsText(file);
   }
-  document.querySelectorAll('[data-dest]').forEach(b=>b.addEventListener('click',()=>openDest(b.dataset.dest)));
+  $('destinationsList').addEventListener('click',e=>{const b=e.target.closest('[data-dest]');if(b)openDest(b.dataset.dest);});
+  $('addDestinationBtn').addEventListener('click',()=>$('destinationModal').classList.remove('hidden'));
+  function closeDestinationModal(){$('destinationModal').classList.add('hidden');$('destinationForm').reset();}
+  $('closeDestination').addEventListener('click',closeDestinationModal);$('cancelDestination').addEventListener('click',closeDestinationModal);
+  $('destinationModal').addEventListener('click',e=>{if(e.target===$('destinationModal'))closeDestinationModal();});
+  $('destinationForm').addEventListener('submit',e=>{e.preventDefault();const country=$('destinationCountry').value.trim(),city=$('destinationCity').value.trim(),flag=$('destinationFlag').value;if(!country){showToast('請輸入國家／地區');return;}const name=city?`${country}（${city}）`:country;let key='trip_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6);data.destinations[key]=emptyTrip();DESTS[key]={name,flag,theme:'custom'};data.destinationInfo={...DESTS};save();closeDestinationModal();showToast('已新增旅行檔案');});
   $('backHome').addEventListener('click',goHome);
   document.querySelectorAll('[data-summary]').forEach(b=>b.addEventListener('click',()=>renderSummary(b.dataset.summary)));
   $('closeSummary').addEventListener('click',()=>$('summaryModal').classList.add('hidden'));
@@ -316,7 +329,7 @@
   $('importFile').addEventListener('change',e=>{importData(e.target.files[0]);e.target.value='';});
   $('currency').value=data.currency;
   $('currency').addEventListener('change',()=>{data.currency=$('currency').value;save();renderAll();showToast('已更新貨幣顯示');});
-  $('clearData').addEventListener('click',()=>{if(confirm('呢個動作會清除香港、中國、日本全部清單，確定要繼續？')){data=fresh();save();$('currency').value=data.currency;renderAll();showToast('已清除全部資料');}});
+  $('clearData').addEventListener('click',()=>{if(confirm('呢個動作會清除所有旅行檔案同清單，確定要繼續？')){data=fresh();DESTS={...BUILTIN_DESTS};save();$('currency').value=data.currency;renderAll();showToast('已清除全部資料');}});
   renderHome();
 })();
 </script>
