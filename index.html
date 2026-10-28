@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#fff3f7">
 <title>Travel Buddy 旅行手帳</title>
 <style>
-:root{--bg:#fff8f8;--paper:#fff;--pink:#f4b8cb;--pink2:#ffe4ec;--rose:#c66f91;--deep:#8c4964;--text:#493b43;--muted:#9a858e;--line:#f2dce4;--shadow:0 8px 24px #a75e7812}
+:root{--bg:#fff8f8;--paper:#fff;--pink:#f4b8cb;--pink2:#ffe4ec;--rose:#c66f91;--deep:#8c4964;--text:#493b43;--muted:#9a858e;--line:#f2dce4;--cream:#fff1e9;--green:#dcefe4;--shadow:0 8px 24px #a75e7812}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}
 button,input,select,textarea{font:inherit}
@@ -30,24 +30,39 @@ button{cursor:pointer;border:0}
 .section-head h2{font-size:18px;margin:0}
 .small{font-size:12px;color:var(--muted)}
 .destinations{display:grid;grid-template-columns:1fr;gap:12px}
-.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit}
+.destination{display:flex;align-items:center;gap:14px;text-align:left;background:var(--paper);padding:16px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;color:inherit;transition:transform .15s}
+.destination:active{transform:scale(.99)}
 .flag{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;font-size:31px;flex-shrink:0}
-.flag.hk{background:#ffe4e8}.flag.cn{background:#fff0d8}.flag.jp{background:#e7edff}
-.dest-info{flex:1;min-width:0}.dest-info h3{font-size:19px;margin:0 0 3px}
+.flag.hk{background:#ffe4e8}
+.flag.cn{background:#fff0d8}
+.flag.jp{background:#e7edff}
+.dest-info{flex:1;min-width:0}
+.dest-info h3{font-size:19px;margin:0 0 3px}
 .dest-info p{font-size:12px;color:var(--muted);margin:0}
 .progress{height:5px;background:#f6e8ed;border-radius:9px;margin-top:10px;overflow:hidden}
 .progress span{height:100%;display:block;background:var(--rose);border-radius:9px}
 .arrow{font-size:23px;color:#caa2b2}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:12px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center}
-.stat strong{font-size:18px;display:block;color:var(--deep);overflow-wrap:anywhere}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 10px;text-align:center;color:inherit;width:100%;font-weight:400;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.stat:active{transform:scale(.98)}
+.stat:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.summary-dest{border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;background:#fffafb}
+.summary-dest h4{margin:0 0 9px;font-size:15px}
+.summary-record{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:7px;color:inherit}
+.summary-record strong{display:block;overflow-wrap:anywhere}
+.summary-record small{display:block;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}
+.summary-open{margin-top:9px;width:100%}
+.stat strong{font-size:20px;display:block;color:var(--deep)}
 .stat span{font-size:11px;color:var(--muted)}
 .footer{text-align:center;font-size:11px;color:#b49da6;padding:24px 0 8px}
 .hidden{display:none!important}
 .back{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--deep);font-weight:800;padding:8px 0;margin:0 0 8px}
 .trip-head{padding:18px;border-radius:23px;margin:5px 0 16px;display:flex;align-items:center;gap:13px}
-.trip-head.hk{background:#ffe9ee}.trip-head.cn{background:#fff1d9}.trip-head.jp{background:#e9edff}
-.trip-flag{font-size:39px}.trip-head h2{font-size:24px;margin:0}
+.trip-head.hk{background:#ffe9ee}
+.trip-head.cn{background:#fff1d9}
+.trip-head.jp{background:#e9edff}
+.trip-flag{font-size:39px}
+.trip-head h2{font-size:24px;margin:0}
 .trip-head p{margin:2px 0 0;font-size:12px;color:var(--muted)}
 .tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 0 12px;margin-bottom:10px}
 .tab{white-space:nowrap;border-radius:99px;padding:9px 13px;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px}
@@ -83,120 +98,121 @@ button{cursor:pointer;border:0}
 .itinerary-day{border-left:3px solid var(--pink);padding:0 0 4px 14px;margin:12px 0}
 .itinerary-day h4{margin:0 0 8px}
 .day-item{background:#fff8fa;border-radius:12px;padding:10px;margin-bottom:7px}
-.day-item strong{display:block}.day-item small{color:var(--muted)}
+.day-item strong{display:block}
+.day-item small{color:var(--muted)}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#493b43;color:white;padding:10px 16px;border-radius:99px;font-size:13px;z-index:10;box-shadow:var(--shadow);max-width:90%;text-align:center}
 .modal-bg{position:fixed;inset:0;background:#38232e66;display:grid;place-items:center;padding:18px;z-index:20}
 .modal{background:#fff;border-radius:22px;padding:20px;width:min(100%,500px);max-height:90vh;overflow:auto}
-.modal h3{margin-top:0}.top-actions{display:flex;gap:8px}
+.modal h3{margin-top:0}
+.modal .form-grid{margin-top:12px}
+.top-actions{display:flex;gap:8px}
 .settings{display:flex;gap:8px;flex-wrap:wrap}
 .count-label{background:#fff;border-radius:99px;padding:4px 9px;font-size:11px;color:var(--deep);border:1px solid var(--line)}
-@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}
-@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:16px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
+@media(min-width:560px){.destinations{grid-template-columns:1fr 1fr}.destination:last-child{grid-column:1/-1}.destination:last-child .dest-info{max-width:75%}.app{padding-left:24px;padding-right:24px}.hero{padding:27px}.hero h2{font-size:29px}}
+@media(max-width:420px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:6px}.stat{padding:10px 5px}.stat strong{font-size:18px}.hero p{max-width:85%}.item-actions{flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top">
-  <div class="brand"><div class="logo">🎀</div><div><h1>Travel Buddy</h1><p>旅行手帳 · 把期待收進口袋</p></div></div>
-  <div class="top-actions"><button class="pill" id="backupBtn">↗ 備份</button><button class="pill" id="settingsBtn">⚙️</button></div>
-</header>
+  <header class="top">
+    <div class="brand"><div class="logo">🎀</div><div><h1>Travel Buddy</h1><p>旅行手帳 · 把期待收進口袋</p></div></div>
+    <div class="top-actions"><button class="pill" id="backupBtn" title="匯出備份">↗ 備份</button><button class="pill" id="settingsBtn" title="設定">⚙️</button></div>
+  </header>
 
-<main id="homeView">
-  <section class="hero"><div class="eyebrow">MY LITTLE TRAVEL FILES</div><h2>下一站，去邊度玩？</h2><p>每個地方都有自己嘅清單，慢慢計劃，安心出發。♡</p></section>
-  <div class="section-head"><h2>🧳 我的旅行檔案夾</h2><span class="small">3 個目的地</span></div>
-  <section class="destinations">
-    <button class="destination" data-dest="hk"><div class="flag hk">🇭🇰</div><div class="dest-info"><h3>香港</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-hk" style="width:0%"></span></div><p id="sum-hk">仲未開始計劃</p></div><span class="arrow">›</span></button>
-    <button class="destination" data-dest="cn"><div class="flag cn">🇨🇳</div><div class="dest-info"><h3>中國</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-cn" style="width:0%"></span></div><p id="sum-cn">仲未開始計劃</p></div><span class="arrow">›</span></button>
-    <button class="destination" data-dest="jp"><div class="flag jp">🇯🇵</div><div class="dest-info"><h3>日本</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-jp" style="width:0%"></span></div><p id="sum-jp">仲未開始計劃</p></div><span class="arrow">›</span></button>
-  </section>
-  <section class="stats">
-    <div class="stat"><strong id="allShopping">0</strong><span>待買物品</span></div>
-    <div class="stat"><strong id="allPlaces">0</strong><span>想去地方</span></div>
-    <div class="stat"><strong id="allFood">0</strong><span>想食美食</span></div>
-  </section>
-  <div class="section-head"><h2>💗 小提示</h2></div>
-  <section class="panel"><p style="margin:0">每個檔案都會獨立儲存。撳入香港、中國或日本，就可以記低該地嘅購物清單、景點、餐廳、每日行程同旅行開支。記得定期按右上角「備份」，保存一份 JSON 檔案呀！</p></section>
-</main>
+  <main id="homeView">
+    <section class="hero">
+      <div class="eyebrow">MY LITTLE TRAVEL FILES</div>
+      <h2>下一站，去邊度玩？</h2>
+      <p>每個地方都有自己嘅清單，慢慢計劃，安心出發。♡</p>
+    </section>
+    <div class="section-head"><h2>🧳 我的旅行檔案夾</h2><span class="small">3 個目的地</span></div>
+    <section class="destinations">
+      <button class="destination" data-dest="hk"><div class="flag hk">🇭🇰</div><div class="dest-info"><h3>香港</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-hk" style="width:0%"></span></div><p id="sum-hk" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
+      <button class="destination" data-dest="cn"><div class="flag cn">🇨🇳</div><div class="dest-info"><h3>中國</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-cn" style="width:0%"></span></div><p id="sum-cn" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
+      <button class="destination" data-dest="jp"><div class="flag jp">🇯🇵</div><div class="dest-info"><h3>日本</h3><p>購物 · 景點 · 美食 · 行程</p><div class="progress"><span id="prog-jp" style="width:0%"></span></div><p id="sum-jp" style="margin-top:6px">仲未開始計劃</p></div><span class="arrow">›</span></button>
+    </section>
+    <section class="stats">
+      <button class="stat" type="button" data-summary="shopping" aria-label="查看所有想買嘅嘢"><strong id="allShopping">0</strong><span>🛍️ 想買嘅嘢　›</span></button>
+      <button class="stat" type="button" data-summary="places" aria-label="查看所有想去嘅地方"><strong id="allPlaces">0</strong><span>📍 想去嘅地方　›</span></button>
+      <button class="stat" type="button" data-summary="food" aria-label="查看所有想食嘅嘢"><strong id="allFood">0</strong><span>🍜 想食嘅嘢　›</span></button>
+    </section>
+    <div class="section-head"><h2>💗 小提示</h2></div>
+    <section class="panel"><p style="margin:0">每個檔案都會獨立儲存。撳入香港、中國或日本，就可以記低該地嘅購物清單、景點、餐廳同每日行程。記得定期按右上角「備份」，匯出一份 JSON 檔案保存呀！</p></section>
+  </main>
 
-<main id="destView" class="hidden">
-  <button class="back" id="backHome">← 返回旅行檔案夾</button>
-  <section class="trip-head" id="tripHead"><div class="trip-flag" id="tripFlag">🇭🇰</div><div style="flex:1"><h2 id="tripName">香港</h2><p>呢度嘅清單只屬於呢個目的地 ♡</p></div><span class="count-label" id="tripCount">0 項記錄</span></section>
-  <nav class="tabs">
-    <button class="tab active" data-tab="shopping">🛍️ 購物清單</button>
-    <button class="tab" data-tab="places">📍 想去地方</button>
-    <button class="tab" data-tab="food">🍜 想食美食</button>
-    <button class="tab" data-tab="itinerary">🗓️ 每日行程</button>
-    <button class="tab" data-tab="expenses">💸 旅行開支</button>
-  </nav>
+  <main id="destView" class="hidden">
+    <button class="back" id="backHome">← 返回旅行檔案夾</button>
+    <section class="trip-head" id="tripHead"><div class="trip-flag" id="tripFlag">🇭🇰</div><div style="flex:1"><h2 id="tripName">香港</h2><p>呢度嘅清單只屬於呢個目的地 ♡</p></div><span class="count-label" id="tripCount">0 項記錄</span></section>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="shopping">🛍️ 購物清單</button>
+      <button class="tab" data-tab="places">📍 想去地方</button>
+      <button class="tab" data-tab="food">🍜 想食美食</button>
+      <button class="tab" data-tab="itinerary">🗓️ 每日行程</button>
+      <button class="tab" data-tab="expenses">💸 旅行開支</button>
+    </nav>
+    <section id="tab-shopping" class="tab-content">
+      <div class="panel"><h3>🛍️ 新增想買嘅物品</h3><form id="shoppingForm"><input type="hidden" name="id"><div class="form-grid">
+        <div class="field"><label for="shopItem">物品名稱 *</label><input id="shopItem" name="name" required placeholder="例如：護膚品、手信"></div>
+        <div class="field"><label for="shopBrand">品牌／款式</label><input id="shopBrand" name="brand" placeholder="例如：品牌名"></div>
+        <div class="field"><label for="shopStore">想去邊度買</label><input id="shopStore" name="store" placeholder="例如：商場／店舖"></div>
+        <div class="field"><label for="shopBudget">預算金額</label><input id="shopBudget" name="budget" type="number" min="0" step="0.01" placeholder="0"></div>
+        <div class="field"><label for="shopCurrency">貨幣</label><select id="shopCurrency" name="currency"><option value="CAD">🇨🇦 加幣 CAD</option><option value="HKD">🇭🇰 港幣 HKD</option><option value="JPY">🇯🇵 日圓 JPY</option><option value="CNY">🇨🇳 人民幣 CNY</option></select></div>
+        <div class="field full"><label for="shopNotes">備註</label><textarea id="shopNotes" name="notes" placeholder="顏色、尺碼、網址等"></textarea></div>
+      </div><div class="form-actions"><button class="primary" type="submit" id="shopSubmit">＋ 加入購物清單</button><button class="secondary hidden" type="button" id="shopCancel">取消修改</button></div></form></div>
+      <div class="panel"><div class="filter-row"><h3 style="margin:0">我的購物清單</h3><input id="shopSearch" placeholder="搜尋物品…" aria-label="搜尋物品"></div><div class="list" id="shoppingList"></div></div>
+    </section>
+    <section id="tab-places" class="tab-content hidden">
+      <div class="panel"><h3>📍 新增想去嘅地方</h3><form id="placesForm"><input type="hidden" name="id"><div class="form-grid">
+        <div class="field"><label for="placeName">地方／景點名稱 *</label><input id="placeName" name="name" required placeholder="例如：景點、商場、店舖"></div>
+        <div class="field"><label for="placeType">分類</label><select id="placeType" name="type"><option>景點</option><option>商場</option><option>店舖</option><option>展覽／活動</option><option>其他</option></select></div>
+        <div class="field full"><label for="placeAddress">地址／地點</label><input id="placeAddress" name="address" placeholder="輸入地址或地區"></div>
+        <div class="field full"><label for="placeLink">地圖／網站連結</label><input id="placeLink" name="link" type="url" placeholder="https://..."></div>
+        <div class="field full"><label for="placeNotes">備註</label><textarea id="placeNotes" name="notes" placeholder="營業時間、交通、門票等"></textarea></div>
+      </div><div class="form-actions"><button class="primary" type="submit" id="placeSubmit">＋ 加入想去地方</button><button class="secondary hidden" type="button" id="placeCancel">取消修改</button></div></form></div>
+      <div class="panel"><div class="filter-row"><h3 style="margin:0">我的目的地清單</h3><input id="placeSearch" placeholder="搜尋地方…" aria-label="搜尋地方"></div><div class="list" id="placesList"></div></div>
+    </section>
+    <section id="tab-food" class="tab-content hidden">
+      <div class="panel"><h3>🍜 新增想食嘅美食</h3><form id="foodForm"><input type="hidden" name="id"><div class="form-grid">
+        <div class="field"><label for="foodName">餐廳／美食名稱 *</label><input id="foodName" name="name" required placeholder="例如：餐廳名、街頭小食"></div>
+        <div class="field"><label for="foodDish">必食菜式</label><input id="foodDish" name="dish" placeholder="例如：招牌菜"></div>
+        <div class="field full"><label for="foodAddress">地址／地區</label><input id="foodAddress" name="address" placeholder="輸入地址或地區"></div>
+        <div class="field"><label for="foodBudget">人均預算（HK$）</label><input id="foodBudget" name="budget" type="number" min="0" step="0.01" placeholder="0"></div>
+        <div class="field"><label for="foodLink">餐廳連結</label><input id="foodLink" name="link" type="url" placeholder="https://..."></div>
+        <div class="field full"><label for="foodNotes">備註</label><textarea id="foodNotes" name="notes" placeholder="想點嘅菜、預約資料等"></textarea></div>
+      </div><div class="form-actions"><button class="primary" type="submit" id="foodSubmit">＋ 加入美食清單</button><button class="secondary hidden" type="button" id="foodCancel">取消修改</button></div></form></div>
+      <div class="panel"><div class="filter-row"><h3 style="margin:0">我的美食清單</h3><input id="foodSearch" placeholder="搜尋美食…" aria-label="搜尋美食"></div><div class="list" id="foodList"></div></div>
+    </section>
+    <section id="tab-itinerary" class="tab-content hidden">
+      <div class="panel"><h3>🗓️ 安排每日行程</h3><form id="itineraryForm"><input type="hidden" name="id"><div class="form-grid">
+        <div class="field"><label for="itDate">日期 *</label><input id="itDate" name="date" type="date" required></div>
+        <div class="field"><label for="itTime">時間</label><input id="itTime" name="time" type="time"></div>
+        <div class="field"><label for="itTitle">活動／行程名稱 *</label><input id="itTitle" name="title" required placeholder="例如：去景點、食晚飯"></div>
+        <div class="field"><label for="itType">類型</label><select id="itType" name="type"><option>景點</option><option>購物</option><option>餐廳</option><option>交通</option><option>住宿</option><option>其他</option></select></div>
+        <div class="field full"><label for="itLocation">地點／地址</label><input id="itLocation" name="location" placeholder="地址或集合地點"></div>
+        <div class="field full"><label for="itNotes">備註</label><textarea id="itNotes" name="notes" placeholder="交通方法、預約編號、注意事項"></textarea></div>
+      </div><div class="form-actions"><button class="primary" type="submit" id="itSubmit">＋ 加入行程</button><button class="secondary hidden" type="button" id="itCancel">取消修改</button></div></form></div>
+      <div class="panel"><h3>我的每日行程</h3><div id="itineraryList"></div></div>
+    </section>
+    <section id="tab-expenses" class="tab-content hidden">
+      <div class="panel"><h3>💸 記低旅行開支</h3><form id="expensesForm"><input type="hidden" name="id"><div class="form-grid">
+        <div class="field"><label for="expenseDate">日期 *</label><input id="expenseDate" name="date" type="date" required></div>
+        <div class="field"><label for="expenseName">開支項目 *</label><input id="expenseName" name="name" required placeholder="例如：午餐、車費、門票"></div>
+        <div class="field"><label for="expenseAmount">金額 *</label><input id="expenseAmount" name="amount" type="number" min="0" step="0.01" required placeholder="0"></div>
+        <div class="field"><label for="expenseCurrency">貨幣</label><select id="expenseCurrency" name="currency"><option value="CAD">🇨🇦 加幣 CAD</option><option value="HKD">🇭🇰 港幣 HKD</option><option value="JPY">🇯🇵 日圓 JPY</option><option value="CNY">🇨🇳 人民幣 CNY</option></select></div>
+        <div class="field"><label for="expenseCategory">分類</label><select id="expenseCategory" name="category"><option>飲食</option><option>購物</option><option>交通</option><option>住宿</option><option>門票／活動</option><option>其他</option></select></div>
+        <div class="field"><label for="expensePayment">付款方式</label><select id="expensePayment" name="payment"><option>信用卡</option><option>現金</option><option>扣帳卡</option><option>電子支付</option><option>其他</option></select></div>
+        <div class="field full"><label for="expenseNotes">備註</label><textarea id="expenseNotes" name="notes" placeholder="例如：同邊個食、收據資料等"></textarea></div>
+      </div><div class="form-actions"><button class="primary" type="submit" id="expenseSubmit">＋ 記低開支</button><button class="secondary hidden" type="button" id="expenseCancel">取消修改</button></div></form></div>
+      <div class="panel"><h3>📊 開支總額（按貨幣分開計）</h3><div id="expenseTotals" class="item-meta">暫時未有開支</div></div>
+      <div class="panel"><div class="filter-row"><h3 style="margin:0">我的旅行開支</h3><input id="expenseSearch" placeholder="搜尋開支…" aria-label="搜尋開支"></div><div class="list" id="expensesList"></div></div>
+    </section>
+  </main>
 
-  <section id="tab-shopping" class="tab-content">
-    <div class="panel"><h3>🛍️ 新增想買嘅物品</h3><form id="shoppingForm"><input type="hidden" name="id"><div class="form-grid">
-      <div class="field"><label for="shopItem">物品名稱 *</label><input id="shopItem" name="name" required placeholder="例如：護膚品、手信"></div>
-      <div class="field"><label for="shopBrand">品牌／款式</label><input id="shopBrand" name="brand" placeholder="例如：品牌名"></div>
-      <div class="field"><label for="shopStore">想去邊度買</label><input id="shopStore" name="store" placeholder="例如：商場／店舖"></div>
-      <div class="field"><label for="shopCurrency">貨幣</label><select id="shopCurrency" name="currency"><option value="CAD">🇨🇦 加幣 CAD</option><option value="HKD">🇭🇰 港幣 HKD</option><option value="JPY">🇯🇵 日圓 JPY</option><option value="CNY">🇨🇳 人民幣 CNY</option></select></div>
-      <div class="field"><label for="shopBudget">預算金額</label><input id="shopBudget" name="budget" type="number" min="0" step="0.01" placeholder="0"></div>
-      <div class="field full"><label for="shopNotes">備註</label><textarea id="shopNotes" name="notes" placeholder="顏色、尺碼、網址等"></textarea></div>
-    </div><div class="form-actions"><button class="primary" type="submit" id="shopSubmit">＋ 加入購物清單</button><button class="secondary hidden" type="button" id="shopCancel">取消修改</button></div></form></div>
-    <div class="panel"><div class="filter-row"><h3 style="margin:0">我的購物清單</h3><input id="shopSearch" placeholder="搜尋物品…" aria-label="搜尋物品"></div><div class="list" id="shoppingList"></div></div>
-  </section>
-
-  <section id="tab-places" class="tab-content hidden">
-    <div class="panel"><h3>📍 新增想去嘅地方</h3><form id="placesForm"><input type="hidden" name="id"><div class="form-grid">
-      <div class="field"><label for="placeName">地方／景點名稱 *</label><input id="placeName" name="name" required placeholder="例如：景點、商場、店舖"></div>
-      <div class="field"><label for="placeType">分類</label><select id="placeType" name="type"><option>景點</option><option>商場</option><option>店舖</option><option>展覽／活動</option><option>其他</option></select></div>
-      <div class="field full"><label for="placeAddress">地址／地點</label><input id="placeAddress" name="address" placeholder="輸入地址或地區"></div>
-      <div class="field full"><label for="placeLink">地圖／網站連結</label><input id="placeLink" name="link" type="url" placeholder="https://..."></div>
-      <div class="field full"><label for="placeNotes">備註</label><textarea id="placeNotes" name="notes" placeholder="營業時間、交通、門票等"></textarea></div>
-    </div><div class="form-actions"><button class="primary" type="submit" id="placeSubmit">＋ 加入想去地方</button><button class="secondary hidden" type="button" id="placeCancel">取消修改</button></div></form></div>
-    <div class="panel"><div class="filter-row"><h3 style="margin:0">我的目的地清單</h3><input id="placeSearch" placeholder="搜尋地方…" aria-label="搜尋地方"></div><div class="list" id="placesList"></div></div>
-  </section>
-
-  <section id="tab-food" class="tab-content hidden">
-    <div class="panel"><h3>🍜 新增想食嘅美食</h3><form id="foodForm"><input type="hidden" name="id"><div class="form-grid">
-      <div class="field"><label for="foodName">餐廳／美食名稱 *</label><input id="foodName" name="name" required placeholder="例如：餐廳名、街頭小食"></div>
-      <div class="field"><label for="foodDish">必食菜式</label><input id="foodDish" name="dish" placeholder="例如：招牌菜"></div>
-      <div class="field full"><label for="foodAddress">地址／地區</label><input id="foodAddress" name="address" placeholder="輸入地址或地區"></div>
-      <div class="field"><label for="foodCurrency">預算貨幣</label><select id="foodCurrency" name="currency"><option value="CAD">🇨🇦 加幣 CAD</option><option value="HKD">🇭🇰 港幣 HKD</option><option value="JPY">🇯🇵 日圓 JPY</option><option value="CNY">🇨🇳 人民幣 CNY</option></select></div>
-      <div class="field"><label for="foodBudget">人均預算</label><input id="foodBudget" name="budget" type="number" min="0" step="0.01" placeholder="0"></div>
-      <div class="field"><label for="foodLink">餐廳連結</label><input id="foodLink" name="link" type="url" placeholder="https://..."></div>
-      <div class="field full"><label for="foodNotes">備註</label><textarea id="foodNotes" name="notes" placeholder="想點嘅菜、預約資料等"></textarea></div>
-    </div><div class="form-actions"><button class="primary" type="submit" id="foodSubmit">＋ 加入美食清單</button><button class="secondary hidden" type="button" id="foodCancel">取消修改</button></div></form></div>
-    <div class="panel"><div class="filter-row"><h3 style="margin:0">我的美食清單</h3><input id="foodSearch" placeholder="搜尋美食…" aria-label="搜尋美食"></div><div class="list" id="foodList"></div></div>
-  </section>
-
-  <section id="tab-itinerary" class="tab-content hidden">
-    <div class="panel"><h3>🗓️ 安排每日行程</h3><form id="itineraryForm"><input type="hidden" name="id"><div class="form-grid">
-      <div class="field"><label for="itDate">日期 *</label><input id="itDate" name="date" type="date" required></div>
-      <div class="field"><label for="itTime">時間</label><input id="itTime" name="time" type="time"></div>
-      <div class="field"><label for="itTitle">活動／行程名稱 *</label><input id="itTitle" name="title" required placeholder="例如：去景點、食晚飯"></div>
-      <div class="field"><label for="itType">類型</label><select id="itType" name="type"><option>景點</option><option>購物</option><option>餐廳</option><option>交通</option><option>住宿</option><option>其他</option></select></div>
-      <div class="field full"><label for="itLocation">地點／地址</label><input id="itLocation" name="location" placeholder="地址或集合地點"></div>
-      <div class="field full"><label for="itNotes">備註</label><textarea id="itNotes" name="notes" placeholder="交通方法、預約編號、注意事項"></textarea></div>
-    </div><div class="form-actions"><button class="primary" type="submit" id="itSubmit">＋ 加入行程</button><button class="secondary hidden" type="button" id="itCancel">取消修改</button></div></form></div>
-    <div class="panel"><h3>我的每日行程</h3><div id="itineraryList"></div></div>
-  </section>
-
-  <section id="tab-expenses" class="tab-content hidden">
-    <div class="panel"><h3>💸 記低旅行開支</h3><form id="expensesForm"><input type="hidden" name="id"><div class="form-grid">
-      <div class="field"><label for="expenseDate">日期 *</label><input id="expenseDate" name="date" type="date" required></div>
-      <div class="field"><label for="expenseName">開支項目 *</label><input id="expenseName" name="name" required placeholder="例如：午餐、車費、門票"></div>
-      <div class="field"><label for="expenseAmount">金額 *</label><input id="expenseAmount" name="amount" type="number" min="0" step="0.01" required placeholder="0"></div>
-      <div class="field"><label for="expenseCurrency">貨幣</label><select id="expenseCurrency" name="currency"><option value="CAD">🇨🇦 加幣 CAD</option><option value="HKD">🇭🇰 港幣 HKD</option><option value="JPY">🇯🇵 日圓 JPY</option><option value="CNY">🇨🇳 人民幣 CNY</option></select></div>
-      <div class="field"><label for="expenseCategory">分類</label><select id="expenseCategory" name="category"><option>飲食</option><option>購物</option><option>交通</option><option>住宿</option><option>門票／活動</option><option>其他</option></select></div>
-      <div class="field"><label for="expensePayment">付款方式</label><select id="expensePayment" name="payment"><option>信用卡</option><option>現金</option><option>扣帳卡</option><option>電子支付</option><option>其他</option></select></div>
-      <div class="field full"><label for="expenseNotes">備註</label><textarea id="expenseNotes" name="notes" placeholder="例如：收據資料、其他備註"></textarea></div>
-    </div><div class="form-actions"><button class="primary" type="submit" id="expenseSubmit">＋ 記低開支</button><button class="secondary hidden" type="button" id="expenseCancel">取消修改</button></div></form></div>
-    <div class="panel"><h3>📊 開支總額（按貨幣分開計）</h3><div id="expenseTotals" class="item-meta">暫時未有開支</div><p class="note">唔同貨幣會分開計算，唔會直接加埋。所有金額都係原幣金額，唔會自動換算匯率。</p></div>
-    <div class="panel"><div class="filter-row"><h3 style="margin:0">我的旅行開支</h3><input id="expenseSearch" placeholder="搜尋開支…" aria-label="搜尋開支"></div><div class="list" id="expensesList"></div></div>
-  </section>
-</main>
-
-<div id="settingsModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3>⚙️ 設定與備份</h3><button class="secondary" id="closeSettings">✕</button></div><p class="small">資料會儲存在目前瀏覽器。定期匯出備份檔案，方便日後還原。</p><div class="settings" style="margin-top:14px"><button class="primary" id="exportBtn">↗ 匯出備份檔案</button><button class="secondary" id="importBtn">↙ 匯入備份檔案</button><input type="file" id="importFile" accept=".json,application/json" class="hidden"></div><div class="field" style="margin-top:16px"><label for="currency">預設貨幣</label><select id="currency"><option value="HKD">HK$ 港幣</option><option value="CNY">CN¥ 人民幣</option><option value="JPY">¥ 日圓</option><option value="CAD">C$ 加幣</option></select></div><p class="note">小提示：清除瀏覽器資料或換裝置可能會令本機資料消失；匯出備份可保留資料。</p><div class="form-actions"><button class="danger" id="clearData">清除所有旅行資料</button></div></div></div>
-<div id="toast" class="toast hidden"></div>
-<div class="footer">Made with ♡ for your little adventures</div>
+  <div id="summaryModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3 id="summaryTitle">📋 詳細清單</h3><button class="secondary" id="closeSummary">✕</button></div><p class="small">以下會按旅行目的地分類，清楚顯示每項記錄屬於邊度。</p><div id="summaryContent"></div></div></div>
+  <div id="settingsModal" class="modal-bg hidden"><div class="modal"><div class="section-head"><h3>⚙️ 設定與備份</h3><button class="secondary" id="closeSettings">✕</button></div><p class="small">資料會儲存在目前瀏覽器。定期匯出備份檔案，方便日後還原。</p><div class="settings" style="margin-top:14px"><button class="primary" id="exportBtn">↗ 匯出備份檔案</button><button class="secondary" id="importBtn">↙ 匯入備份檔案</button><input type="file" id="importFile" accept=".json,application/json" class="hidden"></div><div class="field" style="margin-top:16px"><label for="currency">預算顯示貨幣</label><select id="currency"><option value="HKD">HK$ 港幣</option><option value="CNY">¥ 人民幣</option><option value="JPY">¥ 日圓</option><option value="CAD">C$ 加幣</option></select></div><p class="note">小提示：清除瀏覽器資料或換裝置可能會令本機資料消失；匯出備份可保留資料。</p><div class="form-actions"><button class="danger" id="clearData">清除所有旅行資料</button></div></div></div>
+  <div id="toast" class="toast hidden"></div>
+  <div class="footer">Made with ♡ for your little adventures</div>
 </div>
-
 <script>
 (() => {
   const KEY = 'travel_buddy_files_v1';
@@ -210,45 +226,55 @@ button{cursor:pointer;border:0}
   const $ = id => document.getElementById(id);
 
   function loadData(){
-    try{const raw=localStorage.getItem(KEY);return raw?normalize(JSON.parse(raw)):fresh();}
-    catch(e){return fresh();}
+    try {
+      const raw=localStorage.getItem(KEY);
+      if(!raw) return fresh();
+      const parsed=JSON.parse(raw);
+      return normalize(parsed);
+    } catch(e){ return fresh(); }
   }
+
   function normalize(parsed){
     const base=fresh();
-    if(parsed&&parsed.destinations){
+    if(parsed && parsed.destinations){
       base.currency=['HKD','CNY','JPY','CAD'].includes(parsed.currency)?parsed.currency:'HKD';
       for(const k of Object.keys(DESTS)){
         const d=parsed.destinations[k]||{};
-        for(const list of ['shopping','places','food','itinerary','expenses'])base.destinations[k][list]=Array.isArray(d[list])?d[list]:[];
+        for(const list of ['shopping','places','food','itinerary','expenses']) base.destinations[k][list]=Array.isArray(d[list])?d[list]:[];
       }
     }
     return base;
   }
+
   function save(){
-    try{localStorage.setItem(KEY,JSON.stringify(data));renderHome();}
-    catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');}
+    try{
+      localStorage.setItem(KEY,JSON.stringify(data));
+      renderHome();
+    }catch(e){showToast('儲存失敗，請匯出備份或清理瀏覽器空間。');}
   }
+
   function showToast(message){
-    const t=$('toast');t.textContent=message;t.classList.remove('hidden');
-    clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2400);
+    const t=$('toast');
+    t.textContent=message;
+    t.classList.remove('hidden');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>t.classList.add('hidden'),2400);
   }
+
   function escapeHTML(value){
     return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   }
-  function currency(v,code='HKD'){
+
+  function currency(v,code=data.currency){
     if(v===null||v===undefined||v==='')return '';
-    const sym={HKD:'HK$',CNY:'CN¥',JPY:'¥',CAD:'C$'}[code]||'HK$';
+    const sym={HKD:'HK$',CNY:'CN¥',JPY:'JP¥',CAD:'C$'}[code]||'HK$';
     return sym+Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
   }
-  function currencyName(code){
-    return ({CAD:'加幣 CAD',HKD:'港幣 HKD',JPY:'日圓 JPY',CNY:'人民幣 CNY'}[code]||code);
-  }
-  function defaultCurrencyForDest(key=currentDest){
-    return ({hk:'HKD',cn:'CNY',jp:'JPY'}[key]||'CAD');
-  }
+
   function countRecords(d){
     return d.shopping.length+d.places.length+d.food.length+d.itinerary.length+(d.expenses||[]).length;
   }
+
   function renderHome(){
     let shopping=0,places=0,food=0;
     for(const k of Object.keys(DESTS)){
@@ -258,18 +284,61 @@ button{cursor:pointer;border:0}
       food+=d.food.filter(x=>!x.done).length;
       const total=countRecords(d);
       const done=d.shopping.filter(x=>x.done).length+d.places.filter(x=>x.done).length+d.food.filter(x=>x.done).length;
-      $('prog-'+k).style.width=(total?Math.round(done/total*100):0)+'%';
+      const p=total?Math.round(done/total*100):0;
+      $('prog-'+k).style.width=p+'%';
       $('sum-'+k).textContent=total?`${total} 項記錄 · ${done} 項已完成`:'仲未開始計劃';
     }
     $('allShopping').textContent=shopping;
     $('allPlaces').textContent=places;
     $('allFood').textContent=food;
   }
+
+  function renderSummary(type){
+    const config={
+      shopping:{title:'🛍️ 想買嘅嘢',list:'shopping',empty:'暫時未有想買嘅物品。'},
+      places:{title:'📍 想去嘅地方',list:'places',empty:'暫時未有想去嘅地方。'},
+      food:{title:'🍜 想食嘅嘢',list:'food',empty:'暫時未有想食嘅嘢。'}
+    }[type];
+    if(!config)return;
+    $('summaryTitle').textContent=config.title;
+    const groups=Object.keys(DESTS).map(key=>{
+      const items=data.destinations[key][config.list]||[];
+      const records=items.map(item=>{
+        const details=[];
+        if(type==='shopping'){
+          if(item.brand)details.push('品牌：'+item.brand);
+          if(item.store)details.push('購買地點：'+item.store);
+          if(item.budget)details.push('預算：'+currency(item.budget,item.currency||'HKD'));
+          if(item.currency)details.push('貨幣：'+({CAD:'加幣 CAD',HKD:'港幣 HKD',JPY:'日圓 JPY',CNY:'人民幣 CNY'}[item.currency]||item.currency));
+        }
+        if(type==='places'){
+          if(item.type)details.push(item.type);
+          if(item.address)details.push('📍 '+item.address);
+          if(item.link)details.push('🔗 '+item.link);
+        }
+        if(type==='food'){
+          if(item.dish)details.push('必食：'+item.dish);
+          if(item.address)details.push('📍 '+item.address);
+          if(item.budget)details.push('人均：'+currency(item.budget,item.currency||data.currency));
+          if(item.link)details.push('🔗 '+item.link);
+        }
+        if(item.notes)details.push('備註：'+item.notes);
+        return `<button type="button" class="summary-record" data-summary-open="${key}" data-summary-tab="${config.list}"><strong>${item.done?'✓ ':''}${escapeHTML(item.name||'未命名')}</strong>${details.length?`<small>${details.map(escapeHTML).join('\n')}</small>`:''}<small>撳入去查看 ${DESTS[key].name} 清單　›</small></button>`;
+      }).join('');
+      return `<section class="summary-dest"><h4>${DESTS[key].flag} ${DESTS[key].name} <span class="count-label">${items.length} 項</span></h4>${records||'<div class="small">呢個地方暫時未有記錄。</div>'}<button type="button" class="secondary summary-open" data-summary-open="${key}" data-summary-tab="${config.list}">開啟${DESTS[key].name}完整清單 →</button></section>`;
+    }).join('');
+    $('summaryContent').innerHTML=groups;
+    $('summaryModal').classList.remove('hidden');
+  }
+
+  function defaultCurrencyForDest(key=currentDest){
+    return ({hk:'HKD',cn:'CNY',jp:'JPY'}[key]||'CAD');
+  }
+
   function openDest(key){
     currentDest=key;
     const d=DESTS[key];
     $('shopCurrency').value=defaultCurrencyForDest(key);
-    $('foodCurrency').value=defaultCurrencyForDest(key);
     $('expenseCurrency').value=defaultCurrencyForDest(key);
     $('homeView').classList.add('hidden');
     $('destView').classList.remove('hidden');
@@ -280,18 +349,21 @@ button{cursor:pointer;border:0}
     renderAll();
     window.scrollTo({top:0,behavior:'smooth'});
   }
+
   function goHome(){
     $('destView').classList.add('hidden');
     $('homeView').classList.remove('hidden');
     renderHome();
     window.scrollTo({top:0,behavior:'smooth'});
   }
+
   function switchTab(tab){
     currentTab=tab;
     document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
     document.querySelectorAll('.tab-content').forEach(s=>s.classList.toggle('hidden',s.id!=='tab-'+tab));
     renderAll();
   }
+
   function renderAll(){
     const d=data.destinations[currentDest];
     $('tripCount').textContent=countRecords(d)+' 項記錄';
@@ -302,14 +374,15 @@ button{cursor:pointer;border:0}
     renderList('expenses',d.expenses||[],$('expensesList'),$('expenseSearch').value);
     renderExpenseTotals(d.expenses||[]);
   }
+
   function itemHTML(type,item){
     const done=!!item.done;
     let details=[];
     if(type==='shopping'){
       if(item.brand)details.push('品牌：'+item.brand);
       if(item.store)details.push('購買地點：'+item.store);
-      if(item.budget!==''&&item.budget!==undefined)details.push('預算：'+currency(item.budget,item.currency||defaultCurrencyForDest()));
-      details.push('貨幣：'+currencyName(item.currency||defaultCurrencyForDest()));
+      if(item.budget)details.push('預算：'+currency(item.budget,item.currency||data.currency));
+      if(item.currency)details.push('貨幣：'+({CAD:'加幣 CAD',HKD:'港幣 HKD',JPY:'日圓 JPY',CNY:'人民幣 CNY'}[item.currency]||item.currency));
     }
     if(type==='places'){
       if(item.type)details.push(item.type);
@@ -319,47 +392,53 @@ button{cursor:pointer;border:0}
     if(type==='food'){
       if(item.dish)details.push('必食：'+item.dish);
       if(item.address)details.push('📍 '+item.address);
-      if(item.budget!==''&&item.budget!==undefined)details.push('人均：'+currency(item.budget,item.currency||defaultCurrencyForDest()));
+      if(item.budget)details.push('人均：'+currency(item.budget));
       if(item.link)details.push('🔗 '+item.link);
     }
     if(type==='expenses'){
       details.push((item.date||'日期未定')+' · '+(item.category||'其他'));
-      details.push('金額：'+currency(item.amount,item.currency||defaultCurrencyForDest()));
+      details.push('金額：'+currency(item.amount,item.currency||'HKD'));
       if(item.payment)details.push('付款：'+item.payment);
     }
     if(item.notes)details.push('備註：'+item.notes);
     const title=item.name||'未命名';
-    const check=type==='expenses'?'':`<input class="check" type="checkbox" data-action="toggle" data-type="${type}" data-id="${escapeHTML(item.id)}" ${done?'checked':''} aria-label="標記完成">`;
-    const open=(type==='places'||type==='food')&&item.link?`<button class="secondary" data-action="link" data-url="${escapeHTML(item.link)}">開啟</button>`:'';
-    return `<article class="item ${done?'done':''}">${check}<div class="item-main"><div class="item-title">${escapeHTML(title)}</div>${details.length?`<div class="item-meta">${details.map(escapeHTML).join('\n')}</div>`:''}</div><div class="item-actions">${open}<button class="secondary" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">修改</button><button class="danger" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">刪除</button></div></article>`;
+    return `<article class="item ${done?'done':''}">${type==='expenses'?'':`<input class="check" type="checkbox" data-action="toggle" data-type="${type}" data-id="${escapeHTML(item.id)}" ${done?'checked':''} aria-label="標記完成">`}<div class="item-main"><div class="item-title">${escapeHTML(title)}</div>${details.length?`<div class="item-meta">${details.map(escapeHTML).join('\n')}</div>`:''}</div><div class="item-actions">${type==='places'&&item.link?`<button class="secondary" data-action="link" data-url="${escapeHTML(item.link)}">開啟</button>`:''}${type==='food'&&item.link?`<button class="secondary" data-action="link" data-url="${escapeHTML(item.link)}">開啟</button>`:''}<button class="secondary" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">修改</button><button class="danger" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">刪除</button></div></article>`;
   }
+
+  function renderExpenseTotals(items){
+    const totals={};
+    items.forEach(item=>{
+      const code=['CAD','HKD','JPY','CNY'].includes(item.currency)?item.currency:'HKD';
+      totals[code]=(totals[code]||0)+Number(item.amount||0);
+    });
+    const labels={CAD:'🇨🇦 加幣 CAD',HKD:'🇭🇰 港幣 HKD',JPY:'🇯🇵 日圓 JPY',CNY:'🇨🇳 人民幣 CNY'};
+    const el=$('expenseTotals');
+    const rows=Object.keys(totals).filter(k=>totals[k]!==0).map(k=>`${labels[k]}：${currency(totals[k],k)}`);
+    el.innerHTML=rows.length?rows.map(x=>`<div style="margin:4px 0;font-weight:800;color:var(--deep)">${escapeHTML(x)}</div>`).join(''):'暫時未有開支';
+  }
+
   function renderList(type,items,container,query=''){
     const q=query.trim().toLowerCase();
     const filtered=items.filter(i=>JSON.stringify(i).toLowerCase().includes(q));
     if(!filtered.length){
-      container.innerHTML=`<div class="empty"><span class="emoji">${type==='shopping'?'🛍️':type==='places'?'📍':type==='food'?'🍜':'💸'}</span>${q?'搵唔到相關記錄。':'仲未有記錄，喺上面新增第一項啦！'}</div>`;
+      container.innerHTML=`<div class="empty"><span class="emoji">${type==='shopping'?'🛍️':type==='places'?'📍':'🍜'}</span>${q?'搵唔到相關記錄。':'仲未有記錄，喺上面新增第一項啦！'}</div>`;
       return;
     }
-    if(type==='itinerary')return;
     container.innerHTML=filtered.map(i=>itemHTML(type,i)).join('');
   }
+
   function renderItinerary(items){
     const el=$('itineraryList');
-    if(!items.length){el.innerHTML='<div class="empty"><span class="emoji">🗓️</span>仲未有行程，先新增一個活動啦！</div>';return;}
+    if(!items.length){
+      el.innerHTML='<div class="empty"><span class="emoji">🗓️</span>仲未有行程，先新增一個活動啦！</div>';
+      return;
+    }
     const sorted=[...items].sort((a,b)=>(a.date||'').localeCompare(b.date||'')||(a.time||'').localeCompare(b.time||''));
     const groups={};
     sorted.forEach(i=>(groups[i.date||'未定日期']??=[]).push(i));
     el.innerHTML=Object.entries(groups).map(([date,rows])=>`<div class="itinerary-day"><h4>📅 ${escapeHTML(date)}</h4>${rows.map(i=>`<div class="day-item"><strong>${escapeHTML(i.time||'時間未定')} · ${escapeHTML(i.title)}</strong><small>${escapeHTML(i.type||'')}${i.location?' · '+escapeHTML(i.location):''}</small>${i.notes?`<div class="item-meta">${escapeHTML(i.notes)}</div>`:''}<div class="item-actions" style="margin-top:8px;justify-content:flex-start"><button class="secondary" data-action="edit" data-type="itinerary" data-id="${escapeHTML(i.id)}">修改</button><button class="danger" data-action="delete" data-type="itinerary" data-id="${escapeHTML(i.id)}">刪除</button></div></div>`).join('')}</div>`).join('');
   }
-  function renderExpenseTotals(items){
-    const totals={CAD:0,HKD:0,JPY:0,CNY:0};
-    items.forEach(item=>{
-      const code=['CAD','HKD','JPY','CNY'].includes(item.currency)?item.currency:'HKD';
-      totals[code]+=Number(item.amount||0);
-    });
-    const labels={CAD:'🇨🇦 加幣 CAD',HKD:'🇭🇰 港幣 HKD',JPY:'🇯🇵 日圓 JPY',CNY:'🇨🇳 人民幣 CNY'};
-    $('expenseTotals').innerHTML=Object.keys(totals).map(code=>`<div style="margin:4px 0;font-weight:800;color:var(--deep)">${labels[code]}：${currency(totals[code],code)}</div>`).join('');
-  }
+
   const formMap={
     shopping:{form:'shoppingForm',list:'shopping',submit:'shopSubmit',cancel:'shopCancel',default:'＋ 加入購物清單',edit:'儲存修改'},
     places:{form:'placesForm',list:'places',submit:'placeSubmit',cancel:'placeCancel',default:'＋ 加入想去地方',edit:'儲存修改'},
@@ -367,31 +446,34 @@ button{cursor:pointer;border:0}
     itinerary:{form:'itineraryForm',list:'itinerary',submit:'itSubmit',cancel:'itCancel',default:'＋ 加入行程',edit:'儲存修改'},
     expenses:{form:'expensesForm',list:'expenses',submit:'expenseSubmit',cancel:'expenseCancel',default:'＋ 記低開支',edit:'儲存修改'}
   };
+
   function formValues(form){
     const obj={};
     new FormData(form).forEach((v,k)=>{if(k!=='id')obj[k]=String(v).trim();});
     return obj;
   }
+
   function resetForm(type){
     const cfg=formMap[type],f=$(cfg.form);
-    f.reset();f.elements.id.value='';
+    f.reset();
+    f.elements.id.value='';
     if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();
-    if(type==='food')$('foodCurrency').value=defaultCurrencyForDest();
     if(type==='expenses'){
       $('expenseCurrency').value=defaultCurrencyForDest();
-      f.elements.date.value=new Date().toISOString().slice(0,10);
+      $('expenseDate').value=new Date().toLocaleDateString('en-CA');
     }
     $(cfg.submit).textContent=cfg.default;
     $(cfg.cancel).classList.add('hidden');
   }
+
   function startEdit(type,id){
     const item=data.destinations[currentDest][type].find(x=>x.id===id);
     if(!item)return;
     const cfg=formMap[type],f=$(cfg.form);
-    f.reset();f.elements.id.value=item.id;
+    f.reset();
     if(type==='shopping')$('shopCurrency').value=defaultCurrencyForDest();
-    if(type==='food')$('foodCurrency').value=defaultCurrencyForDest();
     if(type==='expenses')$('expenseCurrency').value=defaultCurrencyForDest();
+    f.elements.id.value=item.id;
     for(const [k,v] of Object.entries(item)){
       if(k!=='id'&&f.elements[k])f.elements[k].value=v??'';
     }
@@ -399,17 +481,22 @@ button{cursor:pointer;border:0}
     $(cfg.cancel).classList.remove('hidden');
     f.scrollIntoView({behavior:'smooth',block:'start'});
   }
+
   function deleteItem(type,id){
     if(!confirm('確定刪除呢項記錄？'))return;
     data.destinations[currentDest][type]=data.destinations[currentDest][type].filter(x=>x.id!==id);
-    save();renderAll();showToast('已刪除記錄');
+    save();
+    renderAll();
+    showToast('已刪除記錄');
   }
+
   function submitForm(type,event){
     event.preventDefault();
     const cfg=formMap[type],f=$(cfg.form),v=formValues(f),id=f.elements.id.value;
-    const title=type==='itinerary'?v.title:v.name;
+    const title=(type==='itinerary'?v.title:v.name)||'';
     if(!title){showToast('請先填寫名稱');return;}
-    if(['shopping','food','expenses'].includes(type)&&!v.currency)v.currency=defaultCurrencyForDest();
+    if(type==='shopping'&&!v.currency)v.currency='CAD';
+    if(type==='expenses'&&!v.currency)v.currency='CAD';
     const arr=data.destinations[currentDest][type];
     if(id){
       const idx=arr.findIndex(x=>x.id===id);
@@ -417,15 +504,24 @@ button{cursor:pointer;border:0}
     }else{
       arr.push({...v,id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+'_'+Math.random().toString(36).slice(2),done:false,createdAt:new Date().toISOString()});
     }
-    save();resetForm(type);renderAll();showToast(id?'已儲存修改':'已新增記錄');
+    save();
+    resetForm(type);
+    renderAll();
+    showToast(id?'已儲存修改':'已新增記錄');
   }
+
   function exportData(){
     const blob=new Blob([JSON.stringify({...data,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
     const url=URL.createObjectURL(blob),a=document.createElement('a');
-    a.href=url;a.download='Travel-Buddy-旅行手帳備份.json';
-    document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+    a.href=url;
+    a.download='Travel-Buddy-旅行手帳備份.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
     showToast('已準備匯出備份檔案');
   }
+
   function importData(file){
     if(!file)return;
     const reader=new FileReader();
@@ -437,10 +533,10 @@ button{cursor:pointer;border:0}
         data=normalize(parsed);
         save();
         $('currency').value=data.currency;
-        $('shopCurrency').value=defaultCurrencyForDest();
-        $('foodCurrency').value=defaultCurrencyForDest();
-        $('expenseCurrency').value=defaultCurrencyForDest();
-        renderAll();showToast('備份匯入成功');
+        $('shopCurrency').value='HKD';
+        $('expenseCurrency').value='HKD';
+        renderAll();
+        showToast('備份匯入成功');
       }catch(e){showToast('檔案格式不正確，未能匯入');}
     };
     reader.readAsText(file);
@@ -448,6 +544,22 @@ button{cursor:pointer;border:0}
 
   document.querySelectorAll('[data-dest]').forEach(b=>b.addEventListener('click',()=>openDest(b.dataset.dest)));
   $('backHome').addEventListener('click',goHome);
+  document.querySelectorAll('[data-summary]').forEach(b=>b.addEventListener('click',()=>renderSummary(b.dataset.summary)));
+  $('closeSummary').addEventListener('click',()=>$('summaryModal').classList.add('hidden'));
+
+  $('summaryModal').addEventListener('click',e=>{
+    if(e.target===$('summaryModal')){
+      $('summaryModal').classList.add('hidden');
+      return;
+    }
+    const target=e.target.closest('[data-summary-open]');
+    if(!target)return;
+    const key=target.dataset.summaryOpen,tab=target.dataset.summaryTab;
+    $('summaryModal').classList.add('hidden');
+    openDest(key);
+    switchTab(tab);
+  });
+
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
   for(const type of Object.keys(formMap)){
@@ -478,8 +590,7 @@ button{cursor:pointer;border:0}
   $('placeSearch').addEventListener('input',renderAll);
   $('foodSearch').addEventListener('input',renderAll);
   $('expenseSearch').addEventListener('input',renderAll);
-  $('expenseDate').value=new Date().toISOString().slice(0,10);
-
+  $('expenseDate').value=new Date().toLocaleDateString('en-CA');
   $('backupBtn').addEventListener('click',exportData);
   $('settingsBtn').addEventListener('click',()=>$('settingsModal').classList.remove('hidden'));
   $('closeSettings').addEventListener('click',()=>$('settingsModal').classList.add('hidden'));
@@ -488,10 +599,14 @@ button{cursor:pointer;border:0}
   $('importBtn').addEventListener('click',()=>$('importFile').click());
   $('importFile').addEventListener('change',e=>{importData(e.target.files[0]);e.target.value='';});
   $('currency').value=data.currency;
-  $('currency').addEventListener('change',()=>{data.currency=$('currency').value;save();renderAll();showToast('已更新預設貨幣');});
+  $('currency').addEventListener('change',()=>{data.currency=$('currency').value;save();renderAll();showToast('已更新貨幣顯示');});
   $('clearData').addEventListener('click',()=>{
     if(confirm('呢個動作會清除香港、中國、日本全部清單，確定要繼續？')){
-      data=fresh();save();$('currency').value=data.currency;renderAll();showToast('已清除全部資料');
+      data=fresh();
+      save();
+      $('currency').value=data.currency;
+      renderAll();
+      showToast('已清除全部資料');
     }
   });
   renderHome();
